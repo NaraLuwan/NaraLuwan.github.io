@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="java,spring,spring boot,git,maven,linux,python,php,Hexo,博客,读书,电影">
+  <meta name="keywords" content="Git,">
 
 
 
@@ -80,16 +80,18 @@
 
 
 
-<meta name="description" content="要么有趣 要么有深度 要么安静">
-<meta property="og:type" content="website">
-<meta property="og:title" content="HeChao&#39;s Personal Website">
-<meta property="og:url" content="http://hechao.me/archives/index.html">
+<meta name="description" content="Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。 blob对象。blob文件是一种二进制文件，当把一个文件add进暂存区时就生成一个blob对象，它包含了这个文件的所有数据，但不包括文件名字、路径、格式等信息，之后每次提交只要文件有变更都会生成一个新的blob对象，但原有的blob对象也会保存下来，也就是说只要内容相同的文件在Objects库中只存在一份，这也就是Git">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git 4种对象的理解">
+<meta property="og:url" content="http://hechao.me/2017/02/19/gitObject/index.html">
 <meta property="og:site_name" content="HeChao&#39;s Personal Website">
-<meta property="og:description" content="要么有趣 要么有深度 要么安静">
+<meta property="og:description" content="Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。 blob对象。blob文件是一种二进制文件，当把一个文件add进暂存区时就生成一个blob对象，它包含了这个文件的所有数据，但不包括文件名字、路径、格式等信息，之后每次提交只要文件有变更都会生成一个新的blob对象，但原有的blob对象也会保存下来，也就是说只要内容相同的文件在Objects库中只存在一份，这也就是Git">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-28T12:40:38.952Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HeChao&#39;s Personal Website">
-<meta name="twitter:description" content="要么有趣 要么有深度 要么安静">
+<meta name="twitter:title" content="git 4种对象的理解">
+<meta name="twitter:description" content="Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。 blob对象。blob文件是一种二进制文件，当把一个文件add进暂存区时就生成一个blob对象，它包含了这个文件的所有数据，但不包括文件名字、路径、格式等信息，之后每次提交只要文件有变更都会生成一个新的blob对象，但原有的blob对象也会保存下来，也就是说只要内容相同的文件在Objects库中只存在一份，这也就是Git">
 
 
 
@@ -119,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://hechao.me/archives/">
+  <link rel="canonical" href="http://hechao.me/2017/02/19/gitObject/">
 
 
 
 
 
-  <title>归档 | HeChao's Personal Website</title>
+  <title>git 4种对象的理解 | HeChao's Personal Website</title>
   
 
 
@@ -144,7 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -268,322 +270,199 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/02/19/gitObject/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="He Chao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HeChao's Personal Website">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">git 4种对象的理解</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-19T19:46:00+08:00">
+                2017-02-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 8 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
 
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/28/compareConfig/" itemprop="url">
-              
-                <span itemprop="name">热门分布式配置中心项目对比</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-28T19:30:00+08:00" content="2018-12-28">
-          12-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/19/gitObject/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/02/19/gitObject/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-        
+          
+          
+             <span id="/2017/02/19/gitObject/" class="leancloud_visitors" data-flag-title="git 4种对象的理解">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/02/unlinkerr/" itemprop="url">
-              
-                <span itemprop="name">Unlink of file 'xx' failed. Should I try again? (y/n) 解决办法</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-08-02T17:16:28+08:00" content="2017-08-02">
-          08-02
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/31/springStart/" itemprop="url">
-              
-                <span itemprop="name">spring启动加载过程源码分析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-07-31T12:11:00+08:00" content="2017-07-31">
-          07-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/15/springTask/" itemprop="url">
-              
-                <span itemprop="name">spring实现定时任务</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-03-15T14:55:06+08:00" content="2017-03-15">
-          03-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/07/jettyXml/" itemprop="url">
-              
-                <span itemprop="name">jetty.xml解析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-03-07T12:36:00+08:00" content="2017-03-07">
-          03-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h3 id="Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。"><a href="#Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。" class="headerlink" title="Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。"></a>Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。</h3><ul>
+<li>blob对象。blob文件是一种二进制文件，当把一个文件add进暂存区时就生成一个blob对象，它包含了这个文件的所有数据，但不包括文件名字、路径、格式等信息，之后每次提交只要文件有变更都会生成一个新的blob对象，但原有的blob对象也会保存下来，也就是说只要内容相同的文件在Objects库中只存在一份，这也就是Git和其他版本控制系统的区别。<a id="more"></a>还要说明的是，每个blob对象的id是对文件内容进行hash得到的，这样在比较文件是否修改了的时候只用比较对应的blob对象名是否相同就可以了。</li>
+<li>tree对象。可以把它想象成文件目录，每个tree对象包含0个或多个tree对象和blob对象。</li>
+<li>commit对象。每次提交都会生成一个commit对象，而每个commit对象都对应一个tree对象，通过这个tree对象可以查看这次提交的所有信息。</li>
+<li>tags对象。tags对象主要是为了解决每次提交id太长不好记的问题，可以对每次提交标注一个tag。<br>顺便吐槽下,《Git版本控制管理》中文第二版真的翻译的一般…</li>
+</ul>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/02/20/gitCommands/" itemprop="url">
-              
-                <span itemprop="name">git常用统计命令</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-02-20T19:33:00+08:00" content="2017-02-20">
-          02-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/02/19/gitObject/" itemprop="url">
-              
-                <span itemprop="name">git 4种对象的理解</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-02-19T19:46:00+08:00" content="2017-02-19">
-          02-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/02/16/gitMerge/" itemprop="url">
-              
-                <span itemprop="name">Git合并分支命令参数详解：git merge --ff</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-02-16T17:11:00+08:00" content="2017-02-16">
-          02-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/16/gitMerge/" rel="next" title="Git合并分支命令参数详解：git merge --ff">
+                <i class="fa fa-chevron-left"></i> Git合并分支命令参数详解：git merge --ff
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/20/gitCommands/" rel="prev" title="git常用统计命令">
+                git常用统计命令 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -591,6 +470,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -611,8 +497,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -712,6 +607,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。"><span class="nav-number">1.</span> <span class="nav-text">Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -845,6 +756,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
