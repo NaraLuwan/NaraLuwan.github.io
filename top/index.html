@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="java,spring,spring boot,git,maven,linux,python,php,Hexo,博客,读书,电影">
+  <meta name="keywords" content="top,文章阅读量排行榜">
 
 
 
@@ -80,17 +80,18 @@
 
 
 
-<meta name="description" content="要么有趣 要么有深度 要么安静">
+<meta name="description" content="博客文章阅读量排行榜">
+<meta name="keywords" content="top,文章阅读量排行榜">
 <meta property="og:type" content="website">
-<meta property="og:title" content="books">
-<meta property="og:url" content="http://hechao.me/books/index.html">
+<meta property="og:title" content="TopX">
+<meta property="og:url" content="http://hechao.me/top/index.html">
 <meta property="og:site_name" content="HeChao&#39;s Personal Website">
-<meta property="og:description" content="要么有趣 要么有深度 要么安静">
+<meta property="og:description" content="博客文章阅读量排行榜">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-28T13:01:20.563Z">
+<meta property="og:updated_time" content="2018-12-29T02:12:45.987Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="books">
-<meta name="twitter:description" content="要么有趣 要么有深度 要么安静">
+<meta name="twitter:title" content="TopX">
+<meta name="twitter:description" content="博客文章阅读量排行榜">
 
 
 
@@ -120,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://hechao.me/books/">
+  <link rel="canonical" href="http://hechao.me/top/">
 
 
 
 
 
-  <title>books | HeChao's Personal Website</title>
+  <title>TopX | HeChao's Personal Website</title>
   
 
 
@@ -276,8 +277,12 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">books</h1>
+	<h1 class="post-title" itemprop="name headline">TopX</h1>
 
+
+	<div class="post-meta">
+		<div class="post-description">博客文章阅读量排行榜</div>
+	</div>
 
 
 </header>
@@ -288,7 +293,33 @@
       <div class="post-body">
         
         
-          
+          <p><div id="top"></div></p>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script>AV.initialize("j3wt1Uy0uac8DRKhiEVPurT5-gzGzoHsz", "N9kfSJpii1Wydbnzee8YdkdD");</script>
+<script type="text/javascript">
+  var time=0
+  var title=""
+  var url=""
+  var query = new AV.Query('Counter');
+  query.notEqualTo('id',0);
+  query.descending('time');
+  query.limit(1000);
+  query.find().then(function (todo) {
+    for (var i=0;i<1000;i++){
+      var result=todo[i].attributes;
+      time=result.time;
+      title=result.title;
+      url=result.url;
+      var content="<a href='"+"https://hechao.me"+url+"'>"+title+"</a>"+"<br />"+"<font 
+      color='#555'>"+"阅读次数："+time+"</font>"+"<br /><br />";
+      document.getElementById("top").innerHTML+=content
+    }
+  }, function (error) {
+    console.log("error");
+  });
+</script>
+
+<style>.post-description { display: none; }</style>
         
       </div>
       
@@ -306,13 +337,6 @@
 
 
           
-
-  
-    <div class="comments" id="comments">
-    </div>
-  
-
-
 
         </div>
         
