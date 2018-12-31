@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="Git,">
+  <meta name="keywords" content="Jetty,">
 
 
 
@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。 blob对象。blob文件是一种二进制文件，当把一个文件add进暂存区时就生成一个blob对象，它包含了这个文件的所有数据，但不包括文件名字、路径、格式等信息，之后每次提交只要文件有变更都会生成一个新的blob对象，但原有的blob对象也会保存下来，也就是说只要内容相同的文件在Objects库中只存在一份，这也就是Git">
-<meta name="keywords" content="Git">
+<meta name="description" content="jetty有一种启动方式是在jetty的根目录中运行命令行：java -jar start.jar，这个命令会调用apache的XmlConfiguration工具类作为启动类，这个类会默认读取/etc/jetty.xml文件，加载jetty启动所必须的配置。接下来分段研究：1&amp;lt;Configure id=&amp;quot;Server&amp;quot; class=&amp;quot;org.eclipse.j">
+<meta name="keywords" content="Jetty">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git 4种对象的理解">
-<meta property="og:url" content="http://hechao.me/2017/02/19/gitObject/index.html">
+<meta property="og:title" content="jetty.xml解析">
+<meta property="og:url" content="http://hechao.me/2017/03/07/cjqc8ahv7000l08iynu9ibbz7/index.html">
 <meta property="og:site_name" content="HeChao&#39;s Personal Website">
-<meta property="og:description" content="Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。 blob对象。blob文件是一种二进制文件，当把一个文件add进暂存区时就生成一个blob对象，它包含了这个文件的所有数据，但不包括文件名字、路径、格式等信息，之后每次提交只要文件有变更都会生成一个新的blob对象，但原有的blob对象也会保存下来，也就是说只要内容相同的文件在Objects库中只存在一份，这也就是Git">
+<meta property="og:description" content="jetty有一种启动方式是在jetty的根目录中运行命令行：java -jar start.jar，这个命令会调用apache的XmlConfiguration工具类作为启动类，这个类会默认读取/etc/jetty.xml文件，加载jetty启动所必须的配置。接下来分段研究：1&amp;lt;Configure id=&amp;quot;Server&amp;quot; class=&amp;quot;org.eclipse.j">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-29T06:10:40.838Z">
+<meta property="og:updated_time" content="2018-12-31T10:40:47.349Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git 4种对象的理解">
-<meta name="twitter:description" content="Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。 blob对象。blob文件是一种二进制文件，当把一个文件add进暂存区时就生成一个blob对象，它包含了这个文件的所有数据，但不包括文件名字、路径、格式等信息，之后每次提交只要文件有变更都会生成一个新的blob对象，但原有的blob对象也会保存下来，也就是说只要内容相同的文件在Objects库中只存在一份，这也就是Git">
+<meta name="twitter:title" content="jetty.xml解析">
+<meta name="twitter:description" content="jetty有一种启动方式是在jetty的根目录中运行命令行：java -jar start.jar，这个命令会调用apache的XmlConfiguration工具类作为启动类，这个类会默认读取/etc/jetty.xml文件，加载jetty启动所必须的配置。接下来分段研究：1&amp;lt;Configure id=&amp;quot;Server&amp;quot; class=&amp;quot;org.eclipse.j">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://hechao.me/2017/02/19/gitObject/">
+  <link rel="canonical" href="http://hechao.me/2017/03/07/cjqc8ahv7000l08iynu9ibbz7/">
 
 
 
 
 
-  <title>git 4种对象的理解 | HeChao's Personal Website</title>
+  <title>jetty.xml解析 | HeChao's Personal Website</title>
   
 
 
@@ -284,7 +284,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/02/19/gitObject/">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/03/07/cjqc8ahv7000l08iynu9ibbz7/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="He Chao">
@@ -301,7 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git 4种对象的理解</h1>
+          <h1 class="post-title" itemprop="name headline">jetty.xml解析</h1>
         
 
         <div class="post-meta">
@@ -313,8 +313,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-19T19:46:00+08:00">
-                2017-02-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-07T12:36:00+08:00">
+                2017-03-07
               </time>
             
 
@@ -336,8 +336,19 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
                   </a>
                 </span>
 
@@ -354,8 +365,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/19/gitObject/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/02/19/gitObject/" itemprop="commentCount"></span>
+                <a href="/2017/03/07/cjqc8ahv7000l08iynu9ibbz7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/03/07/cjqc8ahv7000l08iynu9ibbz7/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -363,7 +374,7 @@
 
           
           
-             <span id="/2017/02/19/gitObject/" class="leancloud_visitors" data-flag-title="git 4种对象的理解">
+             <span id="/2017/03/07/cjqc8ahv7000l08iynu9ibbz7/" class="leancloud_visitors" data-flag-title="jetty.xml解析">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -394,12 +405,17 @@
       
 
       
-        <h3 id="Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。"><a href="#Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。" class="headerlink" title="Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。"></a>Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。</h3><ul>
-<li>blob对象。blob文件是一种二进制文件，当把一个文件add进暂存区时就生成一个blob对象，它包含了这个文件的所有数据，但不包括文件名字、路径、格式等信息，之后每次提交只要文件有变更都会生成一个新的blob对象，但原有的blob对象也会保存下来，也就是说只要内容相同的文件在Objects库中只存在一份，这也就是Git和其他版本控制系统的区别。<a id="more"></a>还要说明的是，每个blob对象的id是对文件内容进行hash得到的，这样在比较文件是否修改了的时候只用比较对应的blob对象名是否相同就可以了。</li>
-<li>tree对象。可以把它想象成文件目录，每个tree对象包含0个或多个tree对象和blob对象。</li>
-<li>commit对象。每次提交都会生成一个commit对象，而每个commit对象都对应一个tree对象，通过这个tree对象可以查看这次提交的所有信息。</li>
-<li>tags对象。tags对象主要是为了解决每次提交id太长不好记的问题，可以对每次提交标注一个tag。<br>顺便吐槽下,《Git版本控制管理》中文第二版真的翻译的一般…</li>
-</ul>
+        <p>jetty有一种启动方式是在jetty的根目录中运行命令行：java -jar start.jar，这个命令会调用apache的XmlConfiguration工具类作为启动类，这个类会默认读取/etc/jetty.xml文件，加载jetty启动所必须的配置。接下来分段研究：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Configure id=&quot;Server&quot; class=&quot;org.eclipse.jetty.server.Server&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这段配置是整个配置文件的root元素，它其实是调用org.eclipse.jetty.server类的默认构造函数来创建一个server对象，对应源码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public Server()&#123;</span><br><span class="line">    this((ThreadPool)null);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>创建了一个空的server，那么接下来就是为这个server设置各种对象及属性了。继续看：<a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Set name=&quot;ThreadPool&quot;&gt;</span><br><span class="line">      &lt;New class=&quot;org.eclipse.jetty.util.thread.QueuedThreadPool&quot;&gt;</span><br><span class="line">        &lt;Set name=&quot;minThreads&quot;&gt;100&lt;/Set&gt;</span><br><span class="line">        &lt;Set name=&quot;maxThreads&quot;&gt;1000&lt;/Set&gt;</span><br><span class="line">        &lt;Set name=&quot;SpawnOrShrinkAt&quot;&gt;2&lt;/Set&gt;</span><br><span class="line">      &lt;/New&gt;</span><br><span class="line">&lt;/Set&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这段配置是为当前server设置线程池，从xml元素也可以看出来它其实是调用server的SetThreadPool方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.setThreadPool(threadPool);</span><br></pre></td></tr></table></figure></p>
+<p>然后new了一个org.eclipse.jetty.util.thread.QueuedThreadPool对象，并设置它的最小线程数、最大线程数以及最多有多少task可以暂时放到队列里待会执行，还有其他很多参数具体场景可能需要不同的配置。再继续看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;Call name=&quot;addConnector&quot;&gt;</span><br><span class="line">      &lt;Arg&gt;</span><br><span class="line">          &lt;New class=&quot;org.eclipse.jetty.server.nio.SelectChannelConnector&quot;&gt;</span><br><span class="line">            &lt;Set name=&quot;host&quot;&gt;&lt;Property name=&quot;jetty.host&quot; /&gt;&lt;/Set&gt;</span><br><span class="line">            &lt;Set name=&quot;port&quot;&gt;&lt;Property name=&quot;jetty.port&quot; default=&quot;8080&quot;/&gt;&lt;/Set&gt;</span><br><span class="line">            &lt;Set name=&quot;maxIdleTime&quot;&gt;3000&lt;/Set&gt;</span><br><span class="line">            &lt;Set name=&quot;Acceptors&quot;&gt;2&lt;/Set&gt;</span><br><span class="line">            &lt;Set name=&quot;statsOn&quot;&gt;false&lt;/Set&gt;</span><br><span class="line">            &lt;Set name=&quot;confidentialPort&quot;&gt;9043&lt;/Set&gt;</span><br><span class="line">            &lt;Set name=&quot;lowResourcesConnections&quot;&gt;20000&lt;/Set&gt;</span><br><span class="line">            &lt;Set name=&quot;lowResourcesMaxIdleTime&quot;&gt;10000&lt;/Set&gt;</span><br><span class="line">          &lt;/New&gt;</span><br><span class="line">     &lt;/Arg&gt;</span><br><span class="line">&lt;/Call&gt;</span><br></pre></td></tr></table></figure></p>
+<p>接下来这一段配置是调用addConnector方法，为当前的server对象添加一个connector，即监听器，jetty默认情况下创建的就是SelectChannelConnector，也就是所谓的nioConnector，关于bio,nio和nio的区别网上资料很多可自行百度。这个方法传入了很多参数，host、端口port、连接最大的空闲时间maxIdleTime、创建selector个数Acceptors等等，后面这些参数实际项目配置的都不同，但是都会有一个经验值。关于SelectChannelConnector的详细介绍参考这里： <a href="http://blog.csdn.net/kobejayandy/article/details/20166215" target="_blank" rel="noopener">http://blog.csdn.net/kobejayandy/article/details/20166215</a> 再继续看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;Set name=&quot;handler&quot;&gt;</span><br><span class="line">     &lt;New id=&quot;Handlers&quot; class=&quot;org.eclipse.jetty.server.handler.HandlerCollection&quot;&gt;</span><br><span class="line">        &lt;Set name=&quot;handlers&quot;&gt;</span><br><span class="line">         &lt;Array type=&quot;org.eclipse.jetty.server.Handler&quot;&gt;</span><br><span class="line">           &lt;Item&gt;</span><br><span class="line">             &lt;New id=&quot;Contexts&quot; class=&quot;org.eclipse.jetty.server.handler.ContextHandlerCollection&quot;/&gt;</span><br><span class="line">           &lt;/Item&gt;</span><br><span class="line">           &lt;Item&gt;</span><br><span class="line">             &lt;New id=&quot;DefaultHandler&quot; class=&quot;org.eclipse.jetty.server.handler.DefaultHandler&quot;/&gt;</span><br><span class="line">           &lt;/Item&gt;</span><br><span class="line">         &lt;/Array&gt;</span><br><span class="line">        &lt;/Set&gt;</span><br><span class="line">     &lt;/New&gt;</span><br><span class="line">&lt;/Set&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这段配置是去调用server的setHandler方法为当前的server设置handler属性，这里默认创建的是org.mortbay.jetty.handler.HandlerCollection，接着给这个handlerCollection创建了两个handler分别是ContextHandlerCollection和DefaultHandler。我们知道当jetty收到一个http请求之后，会调用server来处理这个请求，而server对象是调用内部的handler来处理，所以关键还是看HandlerCollection是怎么处理的吧，也就是它的handle方法，源码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">        throws IOException, ServletException</span><br><span class="line">    &#123;</span><br><span class="line">        if (_handlers!=null &amp;&amp; isStarted())</span><br><span class="line">        &#123;</span><br><span class="line">            MultiException mex=null;</span><br><span class="line"></span><br><span class="line">            for (int i=0;i&lt;_handlers.length;i++)</span><br><span class="line">            &#123;</span><br><span class="line">                try</span><br><span class="line">                &#123;</span><br><span class="line">                    _handlers[i].handle(target,baseRequest, request, response);</span><br><span class="line">                &#125;</span><br><span class="line">                catch(IOException e)</span><br><span class="line">                &#123;</span><br><span class="line">                    throw e;</span><br><span class="line">                &#125;</span><br><span class="line">                catch(RuntimeException e)</span><br><span class="line">                &#123;</span><br><span class="line">                    throw e;</span><br><span class="line">                &#125;</span><br><span class="line">                catch(Exception e)</span><br><span class="line">                &#123;</span><br><span class="line">                    if (mex==null)</span><br><span class="line">                        mex=new MultiException();</span><br><span class="line">                    mex.add(e);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            if (mex!=null)</span><br><span class="line">            &#123;</span><br><span class="line">                if (mex.size()==1)</span><br><span class="line">                    throw new ServletException(mex.getThrowable(0));</span><br><span class="line">                else</span><br><span class="line">                    throw new ServletException(mex);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>代码其实很简单，主要是那个for循环遍历当前collection里所有的handler，依次调用它们的handle方法。所以我们平常项目里有些初始化操作会写在handler类里边在jetty启动的时候就会执行初始化。</p>
+<p>好了，到这里整个jetty.xml的文件最重要的一些内容就配置完了，接下来还有一些其他的配置，一般情况下用默认值就好了。</p>
+<hr>
+
 
       
     </div>
@@ -417,7 +433,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Git/" rel="tag"># Git</a>
+            <a href="/tags/Jetty/" rel="tag"># Jetty</a>
           
         </div>
       
@@ -442,8 +458,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/16/gitMerge/" rel="next" title="Git合并分支命令参数详解：git merge --ff">
-                <i class="fa fa-chevron-left"></i> Git合并分支命令参数详解：git merge --ff
+              <a href="/2017/02/20/cjqc8ahuv000808iy23d9g2qy/" rel="next" title="git常用统计命令">
+                <i class="fa fa-chevron-left"></i> git常用统计命令
               </a>
             
           </div>
@@ -452,8 +468,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/20/gitCommands/" rel="prev" title="git常用统计命令">
-                git常用统计命令 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/15/cjqc8ahv6000k08iyt44gxv54/" rel="prev" title="spring实现定时任务">
+                spring实现定时任务 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -511,17 +527,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -540,7 +547,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -551,7 +558,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -562,7 +569,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -651,22 +658,6 @@ show_date_time();
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。"><span class="nav-number">1.</span> <span class="nav-text">Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

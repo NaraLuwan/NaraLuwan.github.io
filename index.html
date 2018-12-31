@@ -283,7 +283,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://hechao.me/2018/12/28/compareConfig/">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2018/12/30/cjqc8ahul000208iy33rwucr0/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="He Chao">
@@ -302,7 +302,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/28/compareConfig/" itemprop="url">热门分布式配置中心项目对比</a></h1>
+                <a class="post-title-link" href="/2018/12/30/cjqc8ahul000208iy33rwucr0/" itemprop="url">Apollo 源码分析（二） Cluster 的创建</a></h1>
         
 
         <div class="post-meta">
@@ -314,8 +314,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-28T19:30:00+08:00">
-                2018-12-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-30T20:55:10+08:00">
+                2018-12-30
               </time>
             
 
@@ -337,7 +337,18 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web/" itemprop="url" rel="index">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/Web/" itemprop="url" rel="index">
                     <span itemprop="name">Web</span>
                   </a>
                 </span>
@@ -355,8 +366,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/12/28/compareConfig/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/28/compareConfig/" itemprop="commentCount"></span>
+                <a href="/2018/12/30/cjqc8ahul000208iy33rwucr0/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/30/cjqc8ahul000208iy33rwucr0/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -364,7 +375,7 @@
 
           
           
-             <span id="/2018/12/28/compareConfig/" class="leancloud_visitors" data-flag-title="热门分布式配置中心项目对比">
+             <span id="/2018/12/30/cjqc8ahul000208iy33rwucr0/" class="leancloud_visitors" data-flag-title="Apollo 源码分析（二） Cluster 的创建">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -381,6 +392,10 @@
           
 
           
+              <div class="post-description">
+                  Source Code Analysis Series
+              </div>
+          
 
         </div>
       </header>
@@ -396,10 +411,10 @@
 
       
         
-          <p>主要对比Spring Cloud Config、netflix archaius、Apollo、Disconf四个项目的特性</p>
+          <p class="description"></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/12/28/compareConfig/#more" rel="contents">
+            <a class="btn" href="/2018/12/30/cjqc8ahul000208iy33rwucr0/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -450,7 +465,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/08/02/unlinkerr/">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2018/12/29/cjqc8ai16001p08iyzzq1u8gd/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="He Chao">
@@ -469,7 +484,570 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/02/unlinkerr/" itemprop="url">Unlink of file 'xx' failed. Should I try again? (y/n) 解决办法</a></h1>
+                <a class="post-title-link" href="/2018/12/29/cjqc8ai16001p08iyzzq1u8gd/" itemprop="url">Apollo 源码分析（一） App 的创建</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-29T21:01:17+08:00">
+                2018-12-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/29/cjqc8ai16001p08iyzzq1u8gd/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/29/cjqc8ai16001p08iyzzq1u8gd/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/12/29/cjqc8ai16001p08iyzzq1u8gd/" class="leancloud_visitors" data-flag-title="Apollo 源码分析（一） App 的创建">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  Source Code Analysis Series
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p class="description"></p>
+
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本文分析 Portal 创建 App 的流程，整个过程涉及 Portal、Admin Service。如下图所示：<br><img src="/uploads/apollo/apollo01.png" alt="创建App流程图"></p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>注：@Data 注解和注释都是我自己加的。所有源码均出自 1.0.0 版本。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/29/cjqc8ai16001p08iyzzq1u8gd/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2018/12/25/cjqc8ahuc000008iypbqm9ig2/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="He Chao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar1.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HeChao's Personal Website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/25/cjqc8ahuc000008iypbqm9ig2/" itemprop="url">Apollo 源码解析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-25T21:13:14+08:00">
+                2018-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/25/cjqc8ahuc000008iypbqm9ig2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/25/cjqc8ahuc000008iypbqm9ig2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/12/25/cjqc8ahuc000008iypbqm9ig2/" class="leancloud_visitors" data-flag-title="Apollo 源码解析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  Source Code Analysis Series
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p class="description"></p>
+
+<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><ul>
+<li>熟悉原理之后才能应用到实际项目中</li>
+<li>学习好的框架、API 设计</li>
+<li>锻炼自己阅读源码和归纳总结的能力</li>
+</ul>
+<h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><ul>
+<li>Apollo 源码 1.0.0 版本</li>
+<li>JDK 1.8+</li>
+<li>MySQL 5.6.5+</li>
+<li>Maven</li>
+<li>IntelliJ IDEA 或 Eclipse</li>
+</ul>
+<h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><ul>
+<li><a href="https://github.com/ctripcorp/apollo/wiki" target="_blank" rel="noopener">Apollo 官方文档</a></li>
+<li><a href="https://github.com/ctripcorp/apollo/wiki/Apollo%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97" target="_blank" rel="noopener">Apollo 开发指南</a></li>
+<li><a href="https://github.com/ctripcorp/apollo/wiki/Apollo%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97" target="_blank" rel="noopener">芋道源码</a></li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/25/cjqc8ahuc000008iypbqm9ig2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2018/12/24/cjqc8ahur000608iyndi3838s/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="He Chao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar1.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HeChao's Personal Website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/24/cjqc8ahur000608iyndi3838s/" itemprop="url">热门分布式配置中心项目对比</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T19:30:00+08:00">
+                2018-12-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/24/cjqc8ahur000608iyndi3838s/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/24/cjqc8ahur000608iyndi3838s/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/12/24/cjqc8ahur000608iyndi3838s/" class="leancloud_visitors" data-flag-title="热门分布式配置中心项目对比">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>主要对比Spring Cloud Config、netflix archaius、Apollo、Disconf四个项目的特性</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/24/cjqc8ahur000608iyndi3838s/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/08/02/cjqc8ahv4000g08iy5oisj07c/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="He Chao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar1.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HeChao's Personal Website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/02/cjqc8ahv4000g08iy5oisj07c/" itemprop="url">Unlink of file 'xx' failed. Should I try again? (y/n) 解决办法</a></h1>
         
 
         <div class="post-meta">
@@ -504,8 +1082,19 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
                   </a>
                 </span>
 
@@ -522,8 +1111,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/08/02/unlinkerr/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/08/02/unlinkerr/" itemprop="commentCount"></span>
+                <a href="/2017/08/02/cjqc8ahv4000g08iy5oisj07c/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/08/02/cjqc8ahv4000g08iy5oisj07c/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -531,7 +1120,7 @@
 
           
           
-             <span id="/2017/08/02/unlinkerr/" class="leancloud_visitors" data-flag-title="Unlink of file 'xx' failed. Should I try again? (y/n) 解决办法">
+             <span id="/2017/08/02/cjqc8ahv4000g08iy5oisj07c/" class="leancloud_visitors" data-flag-title="Unlink of file 'xx' failed. Should I try again? (y/n) 解决办法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -570,7 +1159,7 @@
 <p>如果实在找不到就直接重启电脑…
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/08/02/unlinkerr/#more" rel="contents">
+            <a class="btn" href="/2017/08/02/cjqc8ahv4000g08iy5oisj07c/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -621,7 +1210,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/07/31/springStart/">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/07/31/cjqc8ai18001r08iysek5gwm4/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="He Chao">
@@ -640,7 +1229,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/31/springStart/" itemprop="url">spring启动加载过程源码分析</a></h1>
+                <a class="post-title-link" href="/2017/07/31/cjqc8ai18001r08iysek5gwm4/" itemprop="url">spring启动加载过程源码分析</a></h1>
         
 
         <div class="post-meta">
@@ -675,7 +1264,18 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web/" itemprop="url" rel="index">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/Web/" itemprop="url" rel="index">
                     <span itemprop="name">Web</span>
                   </a>
                 </span>
@@ -693,8 +1293,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/31/springStart/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/07/31/springStart/" itemprop="commentCount"></span>
+                <a href="/2017/07/31/cjqc8ai18001r08iysek5gwm4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/07/31/cjqc8ai18001r08iysek5gwm4/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -702,7 +1302,7 @@
 
           
           
-             <span id="/2017/07/31/springStart/" class="leancloud_visitors" data-flag-title="spring启动加载过程源码分析">
+             <span id="/2017/07/31/cjqc8ai18001r08iysek5gwm4/" class="leancloud_visitors" data-flag-title="spring启动加载过程源码分析">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -746,7 +1346,7 @@
 <p>可以发现，执行new ClassPathXmlApplicationContext()的时候会打印以下日志：
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/07/31/springStart/#more" rel="contents">
+            <a class="btn" href="/2017/07/31/cjqc8ai18001r08iysek5gwm4/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -797,7 +1397,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/03/15/springTask/">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/03/15/cjqc8ahv6000k08iyt44gxv54/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="He Chao">
@@ -816,7 +1416,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/03/15/springTask/" itemprop="url">spring实现定时任务</a></h1>
+                <a class="post-title-link" href="/2017/03/15/cjqc8ahv6000k08iyt44gxv54/" itemprop="url">spring实现定时任务</a></h1>
         
 
         <div class="post-meta">
@@ -851,7 +1451,18 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web/" itemprop="url" rel="index">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/Web/" itemprop="url" rel="index">
                     <span itemprop="name">Web</span>
                   </a>
                 </span>
@@ -869,8 +1480,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/15/springTask/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/03/15/springTask/" itemprop="commentCount"></span>
+                <a href="/2017/03/15/cjqc8ahv6000k08iyt44gxv54/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/03/15/cjqc8ahv6000k08iyt44gxv54/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -878,7 +1489,7 @@
 
           
           
-             <span id="/2017/03/15/springTask/" class="leancloud_visitors" data-flag-title="spring实现定时任务">
+             <span id="/2017/03/15/cjqc8ahv6000k08iyt44gxv54/" class="leancloud_visitors" data-flag-title="spring实现定时任务">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -919,7 +1530,7 @@
 <p>综合考虑，最后使用第三种方案，在这里记录一下：
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/03/15/springTask/#more" rel="contents">
+            <a class="btn" href="/2017/03/15/cjqc8ahv6000k08iyt44gxv54/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -970,7 +1581,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/03/07/jettyXml/">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/03/07/cjqc8ahv7000l08iynu9ibbz7/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="He Chao">
@@ -989,7 +1600,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/03/07/jettyXml/" itemprop="url">jetty.xml解析</a></h1>
+                <a class="post-title-link" href="/2017/03/07/cjqc8ahv7000l08iynu9ibbz7/" itemprop="url">jetty.xml解析</a></h1>
         
 
         <div class="post-meta">
@@ -1024,7 +1635,18 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web/" itemprop="url" rel="index">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/Web/" itemprop="url" rel="index">
                     <span itemprop="name">Web</span>
                   </a>
                 </span>
@@ -1042,8 +1664,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/07/jettyXml/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/03/07/jettyXml/" itemprop="commentCount"></span>
+                <a href="/2017/03/07/cjqc8ahv7000l08iynu9ibbz7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/03/07/cjqc8ahv7000l08iynu9ibbz7/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1051,7 +1673,7 @@
 
           
           
-             <span id="/2017/03/07/jettyXml/" class="leancloud_visitors" data-flag-title="jetty.xml解析">
+             <span id="/2017/03/07/cjqc8ahv7000l08iynu9ibbz7/" class="leancloud_visitors" data-flag-title="jetty.xml解析">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1088,7 +1710,7 @@
 <p>创建了一个空的server，那么接下来就是为这个server设置各种对象及属性了。继续看：
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/03/07/jettyXml/#more" rel="contents">
+            <a class="btn" href="/2017/03/07/cjqc8ahv7000l08iynu9ibbz7/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1139,7 +1761,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/02/20/gitCommands/">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/02/20/cjqc8ahuv000808iy23d9g2qy/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="He Chao">
@@ -1158,7 +1780,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/02/20/gitCommands/" itemprop="url">git常用统计命令</a></h1>
+                <a class="post-title-link" href="/2017/02/20/cjqc8ahuv000808iy23d9g2qy/" itemprop="url">git常用统计命令</a></h1>
         
 
         <div class="post-meta">
@@ -1211,8 +1833,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/20/gitCommands/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/02/20/gitCommands/" itemprop="commentCount"></span>
+                <a href="/2017/02/20/cjqc8ahuv000808iy23d9g2qy/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/02/20/cjqc8ahuv000808iy23d9g2qy/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1220,7 +1842,7 @@
 
           
           
-             <span id="/2017/02/20/gitCommands/" class="leancloud_visitors" data-flag-title="git常用统计命令">
+             <span id="/2017/02/20/cjqc8ahuv000808iy23d9g2qy/" class="leancloud_visitors" data-flag-title="git常用统计命令">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1257,7 +1879,7 @@
 <h2 id="统计提交量排名"><a href="#统计提交量排名" class="headerlink" title="统计提交量排名"></a>统计提交量排名</h2><p>git log –pretty=’%aN’ | sort | uniq-c | sort -k1 -n -r<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/02/20/gitCommands/#more" rel="contents">
+            <a class="btn" href="/2017/02/20/cjqc8ahuv000808iy23d9g2qy/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1308,7 +1930,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/02/19/gitObject/">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/02/19/cjqc8ahv3000f08iy1qt0ig17/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="He Chao">
@@ -1327,7 +1949,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/02/19/gitObject/" itemprop="url">git 4种对象的理解</a></h1>
+                <a class="post-title-link" href="/2017/02/19/cjqc8ahv3000f08iy1qt0ig17/" itemprop="url">git 4种对象的理解</a></h1>
         
 
         <div class="post-meta">
@@ -1380,8 +2002,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/19/gitObject/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/02/19/gitObject/" itemprop="commentCount"></span>
+                <a href="/2017/02/19/cjqc8ahv3000f08iy1qt0ig17/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/02/19/cjqc8ahv3000f08iy1qt0ig17/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1389,7 +2011,7 @@
 
           
           
-             <span id="/2017/02/19/gitObject/" class="leancloud_visitors" data-flag-title="git 4种对象的理解">
+             <span id="/2017/02/19/cjqc8ahv3000f08iy1qt0ig17/" class="leancloud_visitors" data-flag-title="git 4种对象的理解">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1425,179 +2047,7 @@
 <li>blob对象。blob文件是一种二进制文件，当把一个文件add进暂存区时就生成一个blob对象，它包含了这个文件的所有数据，但不包括文件名字、路径、格式等信息，之后每次提交只要文件有变更都会生成一个新的blob对象，但原有的blob对象也会保存下来，也就是说只要内容相同的文件在Objects库中只存在一份，这也就是Git和其他版本控制系统的区别。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/02/19/gitObject/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </li></ul></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/02/16/gitMerge/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="He Chao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar1.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HeChao's Personal Website">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/02/16/gitMerge/" itemprop="url">Git合并分支命令参数详解：git merge --ff</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-16T17:11:00+08:00">
-                2017-02-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/02/16/gitMerge/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/02/16/gitMerge/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/02/16/gitMerge/" class="leancloud_visitors" data-flag-title="Git合并分支命令参数详解：git merge --ff">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>今天研究了一下git merge命令常用参数，并分别用简单的例子实验了一下，整理如下：</p>
-<h1 id="相关参数"><a href="#相关参数" class="headerlink" title="相关参数"></a>相关参数</h1><ul>
-<li>–ff  快速合并，这个是默认的参数。如果合并过程出现冲突，Git会显示出冲突并等待手动解决</li>
-<li>–ff-only  只有能快速合并的情况才合并。如果合并过程出现冲突，Git会自动abort此次merge</li>
-<li>–no-ff  不使用快速合并。会生成一次新的提交记录，这个记录只是标识在这里进行了一次merge操作（目前还没想到应用场景）</li>
-<li>–squash  压缩合并。将待合并的分支的内容压缩成一个新的提交合并进来
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/16/gitMerge/#more" rel="contents">
+            <a class="btn" href="/2017/02/19/cjqc8ahv3000f08iy1qt0ig17/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1638,6 +2088,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1687,7 +2141,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1698,7 +2152,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1709,7 +2163,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
