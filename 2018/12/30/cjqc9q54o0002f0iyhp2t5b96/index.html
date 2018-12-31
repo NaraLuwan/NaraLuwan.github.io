@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="Git,">
+  <meta name="keywords" content="apollo,">
 
 
 
@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。 blob对象。blob文件是一种二进制文件，当把一个文件add进暂存区时就生成一个blob对象，它包含了这个文件的所有数据，但不包括文件名字、路径、格式等信息，之后每次提交只要文件有变更都会生成一个新的blob对象，但原有的blob对象也会保存下来，也就是说只要内容相同的文件在Objects库中只存在一份，这也就是Git">
-<meta name="keywords" content="Git">
+<meta name="description" content="Source Code Analysis Series">
+<meta name="keywords" content="apollo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git 4种对象的理解">
-<meta property="og:url" content="http://hechao.me/2017/02/19/cjqc8ahv3000f08iy1qt0ig17/index.html">
+<meta property="og:title" content="Apollo 源码分析（二） Cluster 的创建">
+<meta property="og:url" content="http://hechao.me/2018/12/30/cjqc9q54o0002f0iyhp2t5b96/index.html">
 <meta property="og:site_name" content="HeChao&#39;s Personal Website">
-<meta property="og:description" content="Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。 blob对象。blob文件是一种二进制文件，当把一个文件add进暂存区时就生成一个blob对象，它包含了这个文件的所有数据，但不包括文件名字、路径、格式等信息，之后每次提交只要文件有变更都会生成一个新的blob对象，但原有的blob对象也会保存下来，也就是说只要内容相同的文件在Objects库中只存在一份，这也就是Git">
+<meta property="og:description" content="Source Code Analysis Series">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-31T10:28:30.165Z">
+<meta property="og:updated_time" content="2018-12-31T11:10:27.563Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git 4种对象的理解">
-<meta name="twitter:description" content="Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。 blob对象。blob文件是一种二进制文件，当把一个文件add进暂存区时就生成一个blob对象，它包含了这个文件的所有数据，但不包括文件名字、路径、格式等信息，之后每次提交只要文件有变更都会生成一个新的blob对象，但原有的blob对象也会保存下来，也就是说只要内容相同的文件在Objects库中只存在一份，这也就是Git">
+<meta name="twitter:title" content="Apollo 源码分析（二） Cluster 的创建">
+<meta name="twitter:description" content="Source Code Analysis Series">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://hechao.me/2017/02/19/cjqc8ahv3000f08iy1qt0ig17/">
+  <link rel="canonical" href="http://hechao.me/2018/12/30/cjqc9q54o0002f0iyhp2t5b96/">
 
 
 
 
 
-  <title>git 4种对象的理解 | HeChao's Personal Website</title>
+  <title>Apollo 源码分析（二） Cluster 的创建 | HeChao's Personal Website</title>
   
 
 
@@ -284,7 +284,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/02/19/cjqc8ahv3000f08iy1qt0ig17/">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2018/12/30/cjqc9q54o0002f0iyhp2t5b96/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="He Chao">
@@ -301,7 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git 4种对象的理解</h1>
+          <h1 class="post-title" itemprop="name headline">Apollo 源码分析（二） Cluster 的创建</h1>
         
 
         <div class="post-meta">
@@ -313,8 +313,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-19T19:46:00+08:00">
-                2017-02-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-30T20:55:10+08:00">
+                2018-12-30
               </time>
             
 
@@ -336,8 +336,19 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
                   </a>
                 </span>
 
@@ -354,8 +365,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/19/cjqc8ahv3000f08iy1qt0ig17/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/02/19/cjqc8ahv3000f08iy1qt0ig17/" itemprop="commentCount"></span>
+                <a href="/2018/12/30/cjqc9q54o0002f0iyhp2t5b96/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/30/cjqc9q54o0002f0iyhp2t5b96/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -363,7 +374,7 @@
 
           
           
-             <span id="/2017/02/19/cjqc8ahv3000f08iy1qt0ig17/" class="leancloud_visitors" data-flag-title="git 4种对象的理解">
+             <span id="/2018/12/30/cjqc9q54o0002f0iyhp2t5b96/" class="leancloud_visitors" data-flag-title="Apollo 源码分析（二） Cluster 的创建">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -380,6 +391,10 @@
           
 
           
+              <div class="post-description">
+                  Source Code Analysis Series
+              </div>
+          
 
         </div>
       </header>
@@ -394,12 +409,12 @@
       
 
       
-        <h3 id="Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。"><a href="#Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。" class="headerlink" title="Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。"></a>Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。</h3><ul>
-<li>blob对象。blob文件是一种二进制文件，当把一个文件add进暂存区时就生成一个blob对象，它包含了这个文件的所有数据，但不包括文件名字、路径、格式等信息，之后每次提交只要文件有变更都会生成一个新的blob对象，但原有的blob对象也会保存下来，也就是说只要内容相同的文件在Objects库中只存在一份，这也就是Git和其他版本控制系统的区别。<a id="more"></a>还要说明的是，每个blob对象的id是对文件内容进行hash得到的，这样在比较文件是否修改了的时候只用比较对应的blob对象名是否相同就可以了。</li>
-<li>tree对象。可以把它想象成文件目录，每个tree对象包含0个或多个tree对象和blob对象。</li>
-<li>commit对象。每次提交都会生成一个commit对象，而每个commit对象都对应一个tree对象，通过这个tree对象可以查看这次提交的所有信息。</li>
-<li>tags对象。tags对象主要是为了解决每次提交id太长不好记的问题，可以对每次提交标注一个tag。<br>顺便吐槽下,《Git版本控制管理》中文第二版真的翻译的一般…</li>
-</ul>
+        <p class="description"></p>
+
+<a id="more"></a>
+<p>##</p>
+<p>##</p>
+<p>##</p>
 <hr>
       
     </div>
@@ -417,7 +432,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Git/" rel="tag"># Git</a>
+            <a href="/tags/apollo/" rel="tag"># apollo</a>
           
         </div>
       
@@ -442,8 +457,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/16/cjqc8ahuy000a08iyjwpj6b2y/" rel="next" title="Git合并分支命令参数详解：git merge --ff">
-                <i class="fa fa-chevron-left"></i> Git合并分支命令参数详解：git merge --ff
+              <a href="/2018/12/29/cjqc9q581001of0iyoy3kj4xr/" rel="next" title="Apollo 源码分析（一） App 的创建">
+                <i class="fa fa-chevron-left"></i> Apollo 源码分析（一） App 的创建
               </a>
             
           </div>
@@ -451,10 +466,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/20/cjqc8ahuv000808iy23d9g2qy/" rel="prev" title="git常用统计命令">
-                git常用统计命令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -511,17 +522,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -651,22 +653,6 @@ show_date_time();
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。"><span class="nav-number">1.</span> <span class="nav-text">Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
