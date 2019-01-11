@@ -83,15 +83,21 @@
 <meta name="description" content="原理概述利用MySQL提供的Replication，其实就是Slave从Master获取Binary log文件，然后再本地镜像的执行日志中记录的操作。由于主从复制的过程是异步的，因此Slave和Master之间的数据有可能存在延迟的现象，此时只能保证数据最终的一致性。 在master与slave之间实现整个复制过程主要由三个线程来完成：  Slave SQL thread线程，在slave端 S">
 <meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysqlMasterToSlave">
+<meta property="og:title" content="MySQL主从原理及实践">
 <meta property="og:url" content="http://hechao.me/2018/06/21/mysqlMasterToSlave/index.html">
 <meta property="og:site_name" content="HeChao&#39;s Personal Website">
 <meta property="og:description" content="原理概述利用MySQL提供的Replication，其实就是Slave从Master获取Binary log文件，然后再本地镜像的执行日志中记录的操作。由于主从复制的过程是异步的，因此Slave和Master之间的数据有可能存在延迟的现象，此时只能保证数据最终的一致性。 在master与slave之间实现整个复制过程主要由三个线程来完成：  Slave SQL thread线程，在slave端 S">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-02T13:31:25.348Z">
+<meta property="og:image" content="http://hechao.me/uploads/mysql/mysqlMasterToSlave01.png">
+<meta property="og:image" content="http://hechao.me/uploads/mysql/mysqlMasterToSlave02.png">
+<meta property="og:image" content="http://hechao.me/uploads/mysql/mysqlMasterToSlave03.png">
+<meta property="og:image" content="http://hechao.me/uploads/mysql/mysqlMasterToSlave04.png">
+<meta property="og:image" content="http://hechao.me/uploads/mysql/mysqlMasterToSlave05.png">
+<meta property="og:updated_time" content="2019-01-11T13:33:44.676Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mysqlMasterToSlave">
+<meta name="twitter:title" content="MySQL主从原理及实践">
 <meta name="twitter:description" content="原理概述利用MySQL提供的Replication，其实就是Slave从Master获取Binary log文件，然后再本地镜像的执行日志中记录的操作。由于主从复制的过程是异步的，因此Slave和Master之间的数据有可能存在延迟的现象，此时只能保证数据最终的一致性。 在master与slave之间实现整个复制过程主要由三个线程来完成：  Slave SQL thread线程，在slave端 S">
+<meta name="twitter:image" content="http://hechao.me/uploads/mysql/mysqlMasterToSlave01.png">
 
 
 
@@ -127,7 +133,7 @@
 
 
 
-  <title>mysqlMasterToSlave | HeChao's Personal Website</title>
+  <title>MySQL主从原理及实践 | HeChao's Personal Website</title>
   
 
 
@@ -333,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">mysqlMasterToSlave</h1>
+          <h1 class="post-title" itemprop="name headline">MySQL主从原理及实践</h1>
         
 
         <div class="post-meta">
@@ -395,7 +401,7 @@
 
           
           
-             <span id="/2018/06/21/mysqlMasterToSlave/" class="leancloud_visitors" data-flag-title="mysqlMasterToSlave">
+             <span id="/2018/06/21/mysqlMasterToSlave/" class="leancloud_visitors" data-flag-title="MySQL主从原理及实践">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -434,7 +440,7 @@
 <li>Binlog dump thread线程(也可称为IO线程)，在master端</li>
 </ol>
 <p>注意：如果一台主服务器配两台从服务器那主服务器上就会有两个Binlog dump 线程，而每个从服务器上各自有两个线程。<a id="more"></a></p>
-<p><a href="/uploads/mysql/mysqlMasterToSlave01.png">主从复制原理图</a></p>
+<p><img src="/uploads/mysql/mysqlMasterToSlave01.png" alt="主从复制原理图"></p>
 <p>网络上找的一张很清晰的交互图，流程可以详细描述为：</p>
 <ol>
 <li><p>slave端的IO线程连接上master端，并请求从指定binlog日志文件的指定pos节点位置(或者从最开始的日志)开始复制之后的日志内容。</p>
@@ -455,20 +461,20 @@
 <ol start="2">
 <li>在主服务器为从服务器分配用户。命令：GRANT replication slave ON <em>.</em> TO ‘slave‘@’%’ IDENTIFIED BY ‘111111’;</li>
 </ol>
-<p><a href="/uploads/mysql/mysqlMasterToSlave02.png">主从复制原理图</a></p>
+<p><img src="/uploads/mysql/mysqlMasterToSlave02.png" alt="主从复制原理图"></p>
 <ol start="3">
 <li>查看主服务器BIN日志的信息（执行完之后记录下这两值，然后在配置完从服务器之前不要对主服务器进行任何操作，因为每次操作数据库时这两值会发生改变）。命令：show master status;</li>
 </ol>
-<p><a href="/uploads/mysql/mysqlMasterToSlave03.png">主从复制原理图</a></p>
+<p><img src="/uploads/mysql/mysqlMasterToSlave03.png" alt="主从复制原理图"></p>
 <ol start="4">
 <li>进入从服务器，执行以下命令设置master。</li>
 </ol>
-<p><a href="/uploads/mysql/mysqlMasterToSlave04.png">主从复制原理图</a></p>
+<p><img src="/uploads/mysql/mysqlMasterToSlave04.png" alt="主从复制原理图"></p>
 <p>MASTER_HOST  :  设置要连接的主服务器的ip地址<br>MASTER_USER  :  设置要连接的主服务器的用户名<br>MASTER_PASSWORD  :  设置要连接的主服务器的密码<br>MASTER_LOG_FILE  :  设置要连接的主服务器的bin日志的日志名称，即第3步得到的信息<br>MASTER_LOG_POS  :  设置要连接的主服务器的bin日志的记录位置，即第3步得到的信息，（这里注意，最后一项不需要加引号。否则配置失败）<br>然后执行start slave;命令启动从服务器。</p>
 <ol start="5">
 <li>查看是否配置成功。命令：show slave status;</li>
 </ol>
-<p><a href="/uploads/mysql/mysqlMasterToSlave05.png">主从复制原理图</a></p>
+<p><img src="/uploads/mysql/mysqlMasterToSlave05.png" alt="主从复制原理图"></p>
 <p>上面两项为Yes说明配置成功。可以在主库更新数据测试从库是否会同步。</p>
 <hr>
       

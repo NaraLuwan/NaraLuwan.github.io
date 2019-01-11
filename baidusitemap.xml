@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://hechao.me/2018/06/21/mysqlMasterToSlave/</loc>
+    <lastmod>2019-01-11T13:33:44.676Z</lastmod>
+  </url>  <url>
     <loc>http://hechao.me/2019/01/09/mysqlNull/</loc>
     <lastmod>2019-01-09T12:54:57.189Z</lastmod>
   </url>  <url>
@@ -21,9 +24,6 @@
   </url>  <url>
     <loc>http://hechao.me/2018/08/18/fileTools/</loc>
     <lastmod>2019-01-02T13:33:40.111Z</lastmod>
-  </url>  <url>
-    <loc>http://hechao.me/2018/06/21/mysqlMasterToSlave/</loc>
-    <lastmod>2019-01-02T13:31:25.348Z</lastmod>
   </url>  <url>
     <loc>http://hechao.me/2018/08/25/joinAndCountDownLatch/</loc>
     <lastmod>2019-01-02T13:13:40.166Z</lastmod>
