@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="Java,File,">
+  <meta name="keywords" content="cs,">
 
 
 
@@ -80,18 +80,21 @@
 
 
 
-<meta name="description" content="整理记录工作中经常用到的文件相关的工具方法。  递归遍历一个目录，获取所有文件名（也可以取到绝对路径） 12345678910111213141516171819202122232425public static void traverse(String filePath, List&amp;lt;String&amp;gt; files) &amp;#123;        if (StringUtils.isBlan">
-<meta name="keywords" content="Java,File">
+<meta name="description" content="概述 Base64是一种基于64个可打印字符来表示二进制数据的表示方法。由于每6个比特为一个单元，对应某个可打印字符。3个字节有24个比特，对应于4个Base64单元，即3个字节可由4个可打印字符来表示。它可用来作为电子邮件的传输编码。在Base64中的可打印字符包括字母A-Z、a-z、数字0-9，这样共有62个字符，此外两个可打印符号在不同的系统中而不同。   Base64常用于在通常处理文本数">
+<meta name="keywords" content="cs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="FIle类常用工具方法整理（持续更新）">
-<meta property="og:url" content="http://hechao.me/2018/08/18/fileTools/index.html">
+<meta property="og:title" content="Base64编码原理">
+<meta property="og:url" content="http://hechao.me/2019/01/30/baes64/index.html">
 <meta property="og:site_name" content="HeChao&#39;s Personal Website">
-<meta property="og:description" content="整理记录工作中经常用到的文件相关的工具方法。  递归遍历一个目录，获取所有文件名（也可以取到绝对路径） 12345678910111213141516171819202122232425public static void traverse(String filePath, List&amp;lt;String&amp;gt; files) &amp;#123;        if (StringUtils.isBlan">
+<meta property="og:description" content="概述 Base64是一种基于64个可打印字符来表示二进制数据的表示方法。由于每6个比特为一个单元，对应某个可打印字符。3个字节有24个比特，对应于4个Base64单元，即3个字节可由4个可打印字符来表示。它可用来作为电子邮件的传输编码。在Base64中的可打印字符包括字母A-Z、a-z、数字0-9，这样共有62个字符，此外两个可打印符号在不同的系统中而不同。   Base64常用于在通常处理文本数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-02T13:33:40.111Z">
+<meta property="og:image" content="http://hechao.me/uploads/base64/base64_01.png">
+<meta property="og:image" content="http://hechao.me/uploads/base64/base64_02.png">
+<meta property="og:updated_time" content="2019-01-30T11:52:45.333Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FIle类常用工具方法整理（持续更新）">
-<meta name="twitter:description" content="整理记录工作中经常用到的文件相关的工具方法。  递归遍历一个目录，获取所有文件名（也可以取到绝对路径） 12345678910111213141516171819202122232425public static void traverse(String filePath, List&amp;lt;String&amp;gt; files) &amp;#123;        if (StringUtils.isBlan">
+<meta name="twitter:title" content="Base64编码原理">
+<meta name="twitter:description" content="概述 Base64是一种基于64个可打印字符来表示二进制数据的表示方法。由于每6个比特为一个单元，对应某个可打印字符。3个字节有24个比特，对应于4个Base64单元，即3个字节可由4个可打印字符来表示。它可用来作为电子邮件的传输编码。在Base64中的可打印字符包括字母A-Z、a-z、数字0-9，这样共有62个字符，此外两个可打印符号在不同的系统中而不同。   Base64常用于在通常处理文本数">
+<meta name="twitter:image" content="http://hechao.me/uploads/base64/base64_01.png">
 
 
 
@@ -121,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://hechao.me/2018/08/18/fileTools/">
+  <link rel="canonical" href="http://hechao.me/2019/01/30/baes64/">
 
 
 
 
 
-  <title>FIle类常用工具方法整理（持续更新） | HeChao's Personal Website</title>
+  <title>Base64编码原理 | HeChao's Personal Website</title>
   
 
 
@@ -316,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://hechao.me/2018/08/18/fileTools/">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2019/01/30/baes64/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="He Chao">
@@ -333,7 +336,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">FIle类常用工具方法整理（持续更新）</h1>
+          <h1 class="post-title" itemprop="name headline">Base64编码原理</h1>
         
 
         <div class="post-meta">
@@ -345,8 +348,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-18T13:14:19+08:00">
-                2018-08-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-30T19:07:37+08:00">
+                2019-01-30
               </time>
             
 
@@ -368,8 +371,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/编码/" itemprop="url" rel="index">
+                    <span itemprop="name">编码</span>
                   </a>
                 </span>
 
@@ -386,8 +389,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/18/fileTools/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/18/fileTools/" itemprop="commentCount"></span>
+                <a href="/2019/01/30/baes64/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/30/baes64/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -395,7 +398,7 @@
 
           
           
-             <span id="/2018/08/18/fileTools/" class="leancloud_visitors" data-flag-title="FIle类常用工具方法整理（持续更新）">
+             <span id="/2019/01/30/baes64/" class="leancloud_visitors" data-flag-title="Base64编码原理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -426,24 +429,32 @@
       
 
       
-        <p>整理记录工作中经常用到的文件相关的工具方法。</p>
-<ul>
-<li><p>递归遍历一个目录，获取所有文件名（也可以取到绝对路径）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">traverse</span><span class="params">(String filePath, List&lt;String&gt; files)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (StringUtils.isBlank(filePath))&#123;</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            File superFile = <span class="keyword">new</span> File(filePath);</span><br><span class="line">            <span class="keyword">if</span> (superFile.exists()) &#123;</span><br><span class="line">                File[] fileList = superFile.listFiles();</span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">null</span> != files &amp;&amp; fileList.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (File file : fileList) &#123;</span><br><span class="line">                        <span class="comment">// 还是文件夹</span></span><br><span class="line">                        <span class="keyword">if</span> (file.isDirectory()) &#123;</span><br><span class="line">                            traverse(file.getAbsolutePath(),files);</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            files.add(file.getName());    <span class="comment">//文件名</span></span><br><span class="line">                            <span class="comment">//files.add(file.getAbsolutePath());    //文件绝对路径</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            <span class="comment">//log</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><blockquote>
+<p>Base64是一种基于64个可打印字符来表示二进制数据的表示方法。由于每6个比特为一个单元，对应某个可打印字符。3个字节有24个比特，对应于4个Base64单元，即3个字节可由4<br>个可打印字符来表示。它可用来作为电子邮件的传输编码。在Base64中的可打印字符包括字母A-Z、a-z、数字0-9，这样共有62个字符，此外两个可打印符号在不同的系统中而不同。</p>
+</blockquote>
+<blockquote>
+<p>Base64常用于在通常处理文本数据的场合，表示、传输、存储一些二进制数据，包括MIME的电子邮件及XML的一些复杂数据。</p>
+</blockquote>
+<p>概况来说，Base64 就是选出 64 个字符（小写字母a-z、大写字母A-Z、数字0-9、符号”+”、”/“），作为一个基本字符集，将其他所有符号都转换成这个字符集中的字符。</p>
+<p>缺点：因为 Base64 将三个字节转化成四个字节，因此 Base64 编码后的文本，会比原文本大出三分之一左右。</p>
+<p>优点：有些网关或系统只能使用ASCII字符。Base64就是用来将非ASCII字符的数据转换成ASCII字符的一种方法，而且base64特别适合在http，mime协议下快速传输数据。</p>
+<a id="more"></a>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li><p>将每三个字节作为一组，一共是24个二进制位。</p>
 </li>
-<li><p>获取文件大小，自动用K、M、G表示<a id="more"></a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">parseSize</span><span class="params">(<span class="keyword">long</span> length)</span></span>&#123;</span><br><span class="line">        StringBuilder size = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        DecimalFormat format = <span class="keyword">new</span> DecimalFormat(<span class="string">"###.0"</span>);</span><br><span class="line">        <span class="keyword">if</span> (length &lt; <span class="number">1024</span>) &#123;</span><br><span class="line">            size.append((<span class="keyword">int</span>) length).append(<span class="string">" B"</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (length &gt;= <span class="number">1024</span> &amp;&amp; length &lt; <span class="number">1024</span> * <span class="number">1024</span>) &#123;</span><br><span class="line">            <span class="keyword">double</span> i = (length / (<span class="number">1024.0</span>));</span><br><span class="line">            size.append(format.format(i)).append(<span class="string">" K"</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (length &gt;= <span class="number">1024</span> * <span class="number">1024</span> &amp;&amp; length &lt; <span class="number">1024</span> * <span class="number">1024</span> * <span class="number">1024</span>) &#123;</span><br><span class="line">            <span class="keyword">double</span> i = (length / (<span class="number">1024.0</span> * <span class="number">1024.0</span>));</span><br><span class="line">            size.append(format.format(i)).append(<span class="string">" M"</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (length &gt;= <span class="number">1024</span> * <span class="number">1024</span> * <span class="number">1024</span>) &#123;</span><br><span class="line">            <span class="keyword">double</span> i = (length / (<span class="number">1024.0</span> * <span class="number">1024.0</span> * <span class="number">1024.0</span>));</span><br><span class="line">            size.append(format.format(i)).append(<span class="string">" G"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> size.toString();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<li><p>将这24个二进制位分为四组，每个组有6个二进制位。</p>
 </li>
-<li><p>Multipart文件转存为本地的File</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">multipartToFile</span><span class="params">(MultipartFile file, String fileFolder)</span></span>&#123;</span><br><span class="line">        FileOutputStream outputStream = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            File newFileFolder = <span class="keyword">new</span> File(fileFolder);</span><br><span class="line">            <span class="keyword">if</span> (!newFileFolder.exists()) &#123;</span><br><span class="line">                newFileFolder.mkdirs();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            fileFolder = newFileFolder.getAbsolutePath() + File.separator + file.getOriginalFilename();</span><br><span class="line"></span><br><span class="line">            outputStream = <span class="keyword">new</span> FileOutputStream(<span class="keyword">new</span> File(fileFolder));</span><br><span class="line">            IOUtils.copy(file.getInputStream(), outputStream);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="comment">// log</span></span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            IOUtils.closeQuietly(outputStream);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<li><p>在每组前面加两个00，扩展成32个二进制位，即四个字节。</p>
 </li>
-<li><p>清理指定目录下一天前（时间可以指定）的文件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">cleanDirectory</span><span class="params">(String dir, <span class="keyword">long</span> ttl)</span> </span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(dir);</span><br><span class="line">        String[] subDirNames = file.list(<span class="keyword">new</span> FilenameFilter() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">accept</span><span class="params">(File current, String name)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> File(current, name).isDirectory();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">if</span> (subDirNames != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (String name : subDirNames) &#123;</span><br><span class="line">                File subDir = <span class="keyword">new</span> File(dir + File.separator + name);</span><br><span class="line">                <span class="keyword">if</span> (System.currentTimeMillis() - subDir.lastModified() &gt; ttl) &#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        FileUtils.deleteDirectory(subDir);  <span class="comment">//import org.apache.commons.io.FileUtils;</span></span><br><span class="line">                    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                        <span class="comment">// log</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<li><p>根据基本字符表，得到扩展后的每个字节的对应符号，这就是Base64的编码值。</p>
 </li>
-<li><p>把字符串存入指定文件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">strToFile</span><span class="params">(String content, File outFile)</span> </span>&#123;</span><br><span class="line">        OutputStream os = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            File parent = outFile.getParentFile();</span><br><span class="line">            <span class="keyword">if</span> (!parent.exists()) &#123;</span><br><span class="line">                parent.mkdirs();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (!outFile.exists()) &#123;</span><br><span class="line">                outFile.createNewFile();</span><br><span class="line">            &#125;</span><br><span class="line">            os = <span class="keyword">new</span> FileOutputStream(outFile);</span><br><span class="line">            IOUtils.write(content, os);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="comment">// log</span></span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            IOUtils.closeQuietly(os);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+</ol>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><h3 id="正常情况"><a href="#正常情况" class="headerlink" title="正常情况"></a>正常情况</h3><p><img src="/uploads/base64/base64_01.png" alt="正常情况"></p>
+<h3 id="需要补位的情况"><a href="#需要补位的情况" class="headerlink" title="需要补位的情况"></a>需要补位的情况</h3><p><img src="/uploads/base64/base64_02.png" alt="需要补位"></p>
+<h2 id="JDK-API"><a href="#JDK-API" class="headerlink" title="JDK API"></a>JDK API</h2><p>JDK 1.8 版本以后 util 包里增加了 Base64 API。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">TestBase64</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">            <span class="comment">// Basic 编码：标准的BASE64编码，用于处理常规的需求。支持 byte[] -&gt; byte[]  byte[] &lt;-&gt; String</span></span><br><span class="line">            String encodeHelloStr = Base64.getEncoder().encodeToString(<span class="string">"hello"</span>.getBytes());</span><br><span class="line"></span><br><span class="line">            <span class="keyword">byte</span>[] decodeHelloByte = Base64.getDecoder().decode(encodeHelloStr);</span><br><span class="line">            System.out.println(<span class="string">"hello"</span>.equals(<span class="keyword">new</span> String(decodeHelloByte)));  <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// URL 编码：使用下划线替换URL里面的反斜线 /</span></span><br><span class="line">            String urlEncoded = Base64.getUrlEncoder().encodeToString(<span class="string">"index?a=xx"</span>.getBytes());</span><br><span class="line">            System.out.println(urlEncoded);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// MIME 编码：使用基本的字母数字产生BASE64输出，而且对MIME格式友好：每一行输出不超过76个字符，而且每行以“\r\n”符结束</span></span><br><span class="line">            StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>; t &lt; <span class="number">10</span>; ++t) &#123;</span><br><span class="line">                sb.append(UUID.randomUUID().toString());</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">byte</span>[] toEncode = sb.toString().getBytes();</span><br><span class="line">            String mimeEncoded = Base64.getMimeEncoder().encodeToString(toEncode);</span><br><span class="line">            System.out.println(mimeEncoded);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.ruanyifeng.com/blog/2008/06/base64.html" target="_blank" rel="noopener">Base64笔记</a></p>
+<p><a href="http://www.importnew.com/14961.html" target="_blank" rel="noopener">Java 8新特性探究（十一）Base64详解</a></p>
 <hr>
       
     </div>
@@ -461,9 +472,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"># Java</a>
-          
-            <a href="/tags/File/" rel="tag"># File</a>
+            <a href="/tags/cs/" rel="tag"># cs</a>
           
         </div>
       
@@ -488,8 +497,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/21/mysqlMasterToSlave/" rel="next" title="MySQL主从原理及实践">
-                <i class="fa fa-chevron-left"></i> MySQL主从原理及实践
+              <a href="/2019/01/12/scala01/" rel="next" title="scala 学习笔记">
+                <i class="fa fa-chevron-left"></i> scala 学习笔记
               </a>
             
           </div>
@@ -497,10 +506,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/25/joinAndCountDownLatch/" rel="prev" title="join和countDownLatch原理及区别详解">
-                join和countDownLatch原理及区别详解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -557,8 +562,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -688,6 +702,22 @@ show_date_time();
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤"><span class="nav-number">2.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例"><span class="nav-number">3.</span> <span class="nav-text">实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正常情况"><span class="nav-number">3.1.</span> <span class="nav-text">正常情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#需要补位的情况"><span class="nav-number">3.2.</span> <span class="nav-text">需要补位的情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK-API"><span class="nav-number">4.</span> <span class="nav-text">JDK API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
