@@ -440,6 +440,7 @@
       
         
           <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; Load Data InFile 'C:/test.csv' Into Table `test` Lines Terminated By '\r\n';</span><br><span class="line">ERROR 1290 (HY000): The MySQL server is running <span class="keyword">with</span> the <span class="comment">--secure-file-priv option so it cannot execute this statement</span></span><br></pre></td></tr></table></figure>
+<h2 id="报错原因"><a href="#报错原因" class="headerlink" title="报错原因"></a>报错原因</h2><p>secure_file_priv 参数设置了指定目录，只能在指定的目录下进行数据导入导出。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/02/13/mysqlLoadDataInFile/#more" rel="contents">
