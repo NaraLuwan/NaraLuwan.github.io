@@ -83,7 +83,7 @@
 <meta name="description" content="要么有趣 要么有深度 要么安静">
 <meta property="og:type" content="website">
 <meta property="og:title" content="HeChao&#39;s Personal Website">
-<meta property="og:url" content="http://hechao.me/categories/Java/Web/index.html">
+<meta property="og:url" content="http://hechao.me/page/3/index.html">
 <meta property="og:site_name" content="HeChao&#39;s Personal Website">
 <meta property="og:description" content="要么有趣 要么有深度 要么安静">
 <meta property="og:locale" content="zh-Hans">
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://hechao.me/categories/Java/Web/">
+  <link rel="canonical" href="http://hechao.me/page/3/">
 
 
 
 
 
-  <title>分类: Web | HeChao's Personal Website</title>
+  <title>HeChao's Personal Website</title>
   
 
 
@@ -148,7 +148,8 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <div class="forkme">
@@ -310,209 +311,186 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
 
   
   
   
-  <div class="post-block category">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Web<small>分类</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/02/16/gitMerge/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="He Chao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar1.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HeChao's Personal Website">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/12/26/apolloArchitecture/" itemprop="url">
-              
-                <span itemprop="name">Apollo 架构分析</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/02/16/gitMerge/" itemprop="url">Git合并分支命令参数详解：git merge --ff</a></h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-26T22:00:48+08:00" content="2018-12-26">
-          12-26
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-16T17:11:00+08:00">
+                2017-02-16
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/16/gitMerge/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/02/16/gitMerge/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/02/16/gitMerge/" class="leancloud_visitors" data-flag-title="Git合并分支命令参数详解：git merge --ff">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
 
       
         
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/24/compareConfig/" itemprop="url">
-              
-                <span itemprop="name">热门分布式配置中心项目对比</span>
-              
+          <p>今天研究了一下git merge命令常用参数，并分别用简单的例子实验了一下，整理如下：</p>
+<h1 id="相关参数"><a href="#相关参数" class="headerlink" title="相关参数"></a>相关参数</h1><ul>
+<li>–ff  快速合并，这个是默认的参数。如果合并过程出现冲突，Git会显示出冲突并等待手动解决</li>
+<li>–ff-only  只有能快速合并的情况才合并。如果合并过程出现冲突，Git会自动abort此次merge</li>
+<li>–no-ff  不使用快速合并。会生成一次新的提交记录，这个记录只是标识在这里进行了一次merge操作（目前还没想到应用场景）</li>
+<li>–squash  压缩合并。将待合并的分支的内容压缩成一个新的提交合并进来
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/16/gitMerge/#more" rel="contents">
+              阅读全文 &raquo;
             </a>
+          </div>
+          <!--/noindex-->
         
-      </h2>
+      
+    </li></ul></div>
+    
+    
+    
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-24T19:30:00+08:00" content="2018-12-24">
-          12-24
-        </time>
-      </div>
+    
 
-    </header>
-  </article>
+    
 
+    
+
+    <footer class="post-footer">
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/19/springTranscational/" itemprop="url">
-              
-                <span itemprop="name">spring事务管理源码解析--加了@Transactional注解后Spring究竟为我们做了哪些事情？</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-04-19T23:16:28+08:00" content="2018-04-19">
-          04-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
 
       
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/02/unlinkerr/" itemprop="url">
-              
-                <span itemprop="name">Unlink of file 'xx' failed. Should I try again? (y/n) 解决办法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-08-02T17:16:28+08:00" content="2017-08-02">
-          08-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
 
       
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/31/springStart/" itemprop="url">
-              
-                <span itemprop="name">spring启动加载过程源码分析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-07-31T12:11:00+08:00" content="2017-07-31">
-          07-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
       
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/15/springTask/" itemprop="url">
-              
-                <span itemprop="name">spring实现定时任务</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-03-15T14:55:06+08:00" content="2017-03-15">
-          03-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+        <div class="post-eof"></div>
       
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/07/jettyXml/" itemprop="url">
-              
-                <span itemprop="name">jetty.xml解析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-03-07T12:36:00+08:00" content="2017-03-07">
-          03-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-    </div>
-
+    </footer>
   </div>
   
   
   
+  </article>
+
+
+    
+  </section>
 
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
 
 
 
