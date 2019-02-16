@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://hechao.me/film/index.html</loc>
+    
+    <lastmod>2019-02-16T12:30:06.630Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://hechao.me/2019/02/13/mysqlLoadDataInFile/</loc>
     
     <lastmod>2019-02-13T13:18:31.951Z</lastmod>
@@ -96,13 +103,6 @@
     <loc>http://hechao.me/2018/08/25/joinAndCountDownLatch/</loc>
     
     <lastmod>2019-01-02T13:13:40.166Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://hechao.me/film/index.html</loc>
-    
-    <lastmod>2018-12-31T11:55:12.348Z</lastmod>
     
   </url>
   
