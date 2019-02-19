@@ -89,7 +89,7 @@
 <meta property="og:description" content="概述AES 由于其执行速度快，易于硬件实现，破解难度大等优势，被广泛用于数据的加密。 既然是对称加密，那如何保证秘钥的安全传输？很容易想到用 RSA 加密秘钥。由于只能用私钥解密，而私钥不需要交互双方都知道也就不用通过网络传输，只要私钥不泄露信息就是安全的。 但如果别人截取到请求后伪造数据也用 RSA 公钥加密这种情况呢？也就是如何保证数据的准确性？这个时候就需要签名校验。 本文基于 AES +">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://hechao.me/uploads/encrypt/AES_RSA_Hash.png">
-<meta property="og:updated_time" content="2019-02-01T08:03:07.227Z">
+<meta property="og:updated_time" content="2019-02-19T09:44:07.503Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AES + RSA + Hash 实现 C-S 安全交互">
 <meta name="twitter:description" content="概述AES 由于其执行速度快，易于硬件实现，破解难度大等优势，被广泛用于数据的加密。 既然是对称加密，那如何保证秘钥的安全传输？很容易想到用 RSA 加密秘钥。由于只能用私钥解密，而私钥不需要交互双方都知道也就不用通过网络传输，只要私钥不泄露信息就是安全的。 但如果别人截取到请求后伪造数据也用 RSA 公钥加密这种情况呢？也就是如何保证数据的准确性？这个时候就需要签名校验。 本文基于 AES +">
@@ -381,30 +381,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/AES/" itemprop="url" rel="index">
-                    <span itemprop="name">AES</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/AES/RSA/" itemprop="url" rel="index">
-                    <span itemprop="name">RSA</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/AES/RSA/Hash/" itemprop="url" rel="index">
-                    <span itemprop="name">Hash</span>
+                  <a href="/categories/加解密/" itemprop="url" rel="index">
+                    <span itemprop="name">加解密</span>
                   </a>
                 </span>
 
@@ -628,7 +606,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -639,7 +617,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -650,7 +628,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
