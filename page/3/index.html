@@ -326,7 +326,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/03/15/springTask/">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2018/06/21/mysqlMasterToSlave/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="He Chao">
@@ -345,7 +345,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/03/15/springTask/" itemprop="url">spring实现定时任务</a></h1>
+                <a class="post-title-link" href="/2018/06/21/mysqlMasterToSlave/" itemprop="url">MySQL主从原理及实践</a></h1>
         
 
         <div class="post-meta">
@@ -357,8 +357,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-15T14:55:06+08:00">
-                2017-03-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-21T16:46:52+08:00">
+                2018-06-21
               </time>
             
 
@@ -380,19 +380,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/Web/" itemprop="url" rel="index">
-                    <span itemprop="name">Web</span>
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
                   </a>
                 </span>
 
@@ -409,8 +398,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/15/springTask/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/03/15/springTask/" itemprop="commentCount"></span>
+                <a href="/2018/06/21/mysqlMasterToSlave/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/06/21/mysqlMasterToSlave/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -418,7 +407,7 @@
 
           
           
-             <span id="/2017/03/15/springTask/" class="leancloud_visitors" data-flag-title="spring实现定时任务">
+             <span id="/2018/06/21/mysqlMasterToSlave/" class="leancloud_visitors" data-flag-title="MySQL主从原理及实践">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -450,16 +439,17 @@
 
       
         
-          <p>今天在项目里需要实现一个定时任务，每隔3个小时将过滤的广告通过邮件上报给运营一次。考虑了一下，从实现的技术上可以有三种做法：</p>
-<ul>
-<li>Java自带的java.util.Timer类，这个类允许调度一个java.util.TimerTask任务。使用这种方式可以让你的程序按照某一个频度执行，但不能在指定时间运行。</li>
-<li>使用Quartz，这是一个功能比较强大的的调度器，可以让程序在指定时间执行，也可以按照某一个频度执行，不过配置起来稍显复杂。</li>
-<li>Spring3.0以后自带的task，其实就是一个轻量级的Quartz，而且使用起来比Quartz简单许多。支持注解和配置文件两种方式。</li>
-</ul>
-<p>综合考虑，最后使用第三种方案，在这里记录一下：
+          <h2 id="原理概述"><a href="#原理概述" class="headerlink" title="原理概述"></a>原理概述</h2><p>利用MySQL提供的Replication，其实就是Slave从Master获取Binary log文件，然后再本地镜像的执行日志中记录的操作。由于主从复制的过程是异步的，因此Slave和Master之间的数据有可能存在延迟的现象，此时只能保证数据最终的一致性。</p>
+<p>在master与slave之间实现整个复制过程主要由三个线程来完成：</p>
+<ol>
+<li>Slave SQL thread线程，在slave端</li>
+<li>Slave I/O thread线程，在slave端</li>
+<li>Binlog dump thread线程(也可称为IO线程)，在master端</li>
+</ol>
+<p>注意：如果一台主服务器配两台从服务器那主服务器上就会有两个Binlog dump 线程，而每个从服务器上各自有两个线程。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/03/15/springTask/#more" rel="contents">
+            <a class="btn" href="/2018/06/21/mysqlMasterToSlave/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -510,7 +500,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/03/07/jettyXml/">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2018/04/19/springTranscational/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="He Chao">
@@ -529,7 +519,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/03/07/jettyXml/" itemprop="url">jetty.xml解析</a></h1>
+                <a class="post-title-link" href="/2018/04/19/springTranscational/" itemprop="url">spring事务管理源码解析--加了@Transactional注解后Spring究竟为我们做了哪些事情？</a></h1>
         
 
         <div class="post-meta">
@@ -541,8 +531,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-07T12:36:00+08:00">
-                2017-03-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-19T23:16:28+08:00">
+                2018-04-19
               </time>
             
 
@@ -593,8 +583,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/07/jettyXml/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/03/07/jettyXml/" itemprop="commentCount"></span>
+                <a href="/2018/04/19/springTranscational/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/04/19/springTranscational/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -602,7 +592,7 @@
 
           
           
-             <span id="/2017/03/07/jettyXml/" class="leancloud_visitors" data-flag-title="jetty.xml解析">
+             <span id="/2018/04/19/springTranscational/" class="leancloud_visitors" data-flag-title="spring事务管理源码解析--加了@Transactional注解后Spring究竟为我们做了哪些事情？">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -634,183 +624,18 @@
 
       
         
-          <p>jetty有一种启动方式是在jetty的根目录中运行命令行：java -jar start.jar，这个命令会调用apache的XmlConfiguration工具类作为启动类，这个类会默认读取/etc/jetty.xml文件，加载jetty启动所必须的配置。接下来分段研究：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Configure id=&quot;Server&quot; class=&quot;org.eclipse.jetty.server.Server&quot;&gt;</span><br></pre></td></tr></table></figure></p>
-<p>这段配置是整个配置文件的root元素，它其实是调用org.eclipse.jetty.server类的默认构造函数来创建一个server对象，对应源码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public Server()&#123;</span><br><span class="line">    this((ThreadPool)null);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>创建了一个空的server，那么接下来就是为这个server设置各种对象及属性了。继续看：
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/07/jettyXml/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/03/07/guavacache/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="He Chao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar1.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HeChao's Personal Website">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/03/07/guavacache/" itemprop="url">guavacache 缓存策略选择</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-07T12:36:00+08:00">
-                2017-03-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/07/guavacache/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/03/07/guavacache/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/03/07/guavacache/" class="leancloud_visitors" data-flag-title="guavacache 缓存策略选择">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="三个参数"><a href="#三个参数" class="headerlink" title="三个参数"></a>三个参数</h3><ul>
-<li>expireAfterAccess: 当缓存项在指定的时间段内没有被读或写就会被回收。</li>
-<li>expireAfterWrite：当缓存项在指定的时间段内没有更新就会被回收。</li>
-<li>refreshAfterWrite：当缓存项上一次更新操作之后的多久会被刷新。</li>
+          <p>实现一个事务需要以下几步：1.获取数据库连接  2.执行数据库操作  3.如果2步骤发生异常就回滚，否则就提交  4.释放资源。</p>
+<p>1、3、4步骤是所有事务所共有的逻辑，程序真正需要关心的只有第2步，spring的事务管理也正是帮我们做了1、3、4的工作。</p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ul>
+<li><p>第一步，要配置dataSource、transactionManager</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--启动spring注解功能 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transactionmanager</span>=<span class="string">"transactionManager"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 设定transactionManager --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"transactionManager"</span> <span class="attr">class</span>=<span class="string">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 配置数据源，这里以C3P0为例 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"com.mchange.v2.c3p0.ComboPooledDataSource"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">destroy-method</span>=<span class="string">"close"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClass"</span> <span class="attr">value</span>=<span class="string">"..."</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"checkoutTimeout"</span> <span class="attr">value</span>=<span class="string">"..."</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第二步，在需要事务的方法上加上注解 @Transactional 即可。</p>
+</li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/03/07/guavacache/#more" rel="contents">
+            <a class="btn" href="/2018/04/19/springTranscational/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -861,7 +686,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/02/20/gitCommands/">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2018/02/18/linux05/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="He Chao">
@@ -880,7 +705,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/02/20/gitCommands/" itemprop="url">git常用统计命令</a></h1>
+                <a class="post-title-link" href="/2018/02/18/linux05/" itemprop="url">Linux 磁盘管理</a></h1>
         
 
         <div class="post-meta">
@@ -892,8 +717,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-20T19:33:00+08:00">
-                2017-02-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-18T16:17:53+08:00">
+                2018-02-18
               </time>
             
 
@@ -915,8 +740,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -933,8 +758,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/20/gitCommands/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/02/20/gitCommands/" itemprop="commentCount"></span>
+                <a href="/2018/02/18/linux05/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/02/18/linux05/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -942,7 +767,7 @@
 
           
           
-             <span id="/2017/02/20/gitCommands/" class="leancloud_visitors" data-flag-title="git常用统计命令">
+             <span id="/2018/02/18/linux05/" class="leancloud_visitors" data-flag-title="Linux 磁盘管理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -974,19 +799,21 @@
 
       
         
-          <p>上周要做个汇报PPT涉及到个人对项目贡献量，在网上搜集了些常用统计命令，总结如下：</p>
-<h2 id="统计代码提交量"><a href="#统计代码提交量" class="headerlink" title="统计代码提交量"></a>统计代码提交量</h2><p>git log –author=”$(gitconfig–getuser.name)” –pretty=tformat: –numstat | gawk ‘{add += $1;subs += $2;loc += $1 - $2} END {printf “added lines:%s removed lines : %s total lines: %s\n”,add,subs,loc}’ -</p>
-<h2 id="统计提交量排名"><a href="#统计提交量排名" class="headerlink" title="统计提交量排名"></a>统计提交量排名</h2><p>git log –pretty=’%aN’ | sort | uniq-c | sort -k1 -n -r<br>
+          <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ol>
+<li>df：检查文件系统的磁盘空间占用情况。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语法：df [-ahikHTm] 目录或文件名</span><br></pre></td></tr></table></figure>
+<p>参数：<br>-a ：列出所有的文件系统，包括系统特有的 /proc 等文件系统；<br>-k ：以 KBytes 的容量显示各文件系统；<br>-m ：以 MBytes 的容量显示各文件系统；<br>-h ：以人们较易阅读的 GBytes, MBytes, KBytes 等格式自行显示；<br>-H ：以 M=1000K 取代 M=1024K 的进位方式；<br>-T ：显示文件系统类型, 连同该 partition 的 filesystem 名称 (例如 ext3) 也列出；<br>-i ：不用硬盘容量，而以 inode 的数量来显示</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/02/20/gitCommands/#more" rel="contents">
+            <a class="btn" href="/2018/02/18/linux05/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
         
       
-    </p></div>
+    </div>
     
     
     
@@ -1030,7 +857,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/02/19/gitObject/">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2018/02/18/linux04/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="He Chao">
@@ -1049,7 +876,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/02/19/gitObject/" itemprop="url">git 4种对象的理解</a></h1>
+                <a class="post-title-link" href="/2018/02/18/linux04/" itemprop="url">Linux 用户和用户组管理</a></h1>
         
 
         <div class="post-meta">
@@ -1061,8 +888,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-19T19:46:00+08:00">
-                2017-02-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-18T16:03:36+08:00">
+                2018-02-18
               </time>
             
 
@@ -1084,8 +911,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -1102,8 +929,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/19/gitObject/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/02/19/gitObject/" itemprop="commentCount"></span>
+                <a href="/2018/02/18/linux04/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/02/18/linux04/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1111,7 +938,7 @@
 
           
           
-             <span id="/2017/02/19/gitObject/" class="leancloud_visitors" data-flag-title="git 4种对象的理解">
+             <span id="/2018/02/18/linux04/" class="leancloud_visitors" data-flag-title="Linux 用户和用户组管理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1143,18 +970,19 @@
 
       
         
-          <h3 id="Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。"><a href="#Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。" class="headerlink" title="Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。"></a>Git中有四种基本对象类型，可以说Git的所有操作都是通过这四种对象完成的。</h3><ul>
-<li>blob对象。blob文件是一种二进制文件，当把一个文件add进暂存区时就生成一个blob对象，它包含了这个文件的所有数据，但不包括文件名字、路径、格式等信息，之后每次提交只要文件有变更都会生成一个新的blob对象，但原有的blob对象也会保存下来，也就是说只要内容相同的文件在Objects库中只存在一份，这也就是Git和其他版本控制系统的区别。
+          <h2 id="Todo"><a href="#Todo" class="headerlink" title="Todo"></a>Todo</h2><p>用户账号的添加、删除与修改。</p>
+<p>用户口令的管理。</p>
+<p>用户组的管理。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/02/19/gitObject/#more" rel="contents">
+            <a class="btn" href="/2018/02/18/linux04/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
         
       
-    </li></ul></div>
+    </div>
     
     
     
@@ -1198,7 +1026,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://hechao.me/2017/02/16/gitMerge/">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2018/02/18/linux03/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="He Chao">
@@ -1217,7 +1045,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/02/16/gitMerge/" itemprop="url">Git合并分支命令参数详解：git merge --ff</a></h1>
+                <a class="post-title-link" href="/2018/02/18/linux03/" itemprop="url">Linux 文件系统</a></h1>
         
 
         <div class="post-meta">
@@ -1229,8 +1057,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-16T17:11:00+08:00">
-                2017-02-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-18T15:21:08+08:00">
+                2018-02-18
               </time>
             
 
@@ -1252,8 +1080,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -1270,8 +1098,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/16/gitMerge/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/02/16/gitMerge/" itemprop="commentCount"></span>
+                <a href="/2018/02/18/linux03/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/02/18/linux03/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1279,7 +1107,7 @@
 
           
           
-             <span id="/2017/02/16/gitMerge/" class="leancloud_visitors" data-flag-title="Git合并分支命令参数详解：git merge --ff">
+             <span id="/2018/02/18/linux03/" class="leancloud_visitors" data-flag-title="Linux 文件系统">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1311,22 +1139,20 @@
 
       
         
-          <p>今天研究了一下git merge命令常用参数，并分别用简单的例子实验了一下，整理如下：</p>
-<h1 id="相关参数"><a href="#相关参数" class="headerlink" title="相关参数"></a>相关参数</h1><ul>
-<li>–ff  快速合并，这个是默认的参数。如果合并过程出现冲突，Git会显示出冲突并等待手动解决</li>
-<li>–ff-only  只有能快速合并的情况才合并。如果合并过程出现冲突，Git会自动abort此次merge</li>
-<li>–no-ff  不使用快速合并。会生成一次新的提交记录，这个记录只是标识在这里进行了一次merge操作（目前还没想到应用场景）</li>
-<li>–squash  压缩合并。将待合并的分支的内容压缩成一个新的提交合并进来
+          <h2 id="文件基本属性"><a href="#文件基本属性" class="headerlink" title="文件基本属性"></a>文件基本属性</h2><p>ll或者ls –l命令来显示一个文件的属性以及文件所属的用户和组：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~] ls -l</span><br><span class="line">total 0</span><br><span class="line">drwxrwxr-x. 2 root root 6 Feb 19 20:30 test</span><br></pre></td></tr></table></figure>
+<p>第0位确定文件类型，第1-3位确定属主（该文件的所有者）拥有该文件的权限。</p>
+<p>第4-6位确定属组（所有者的同组用户）拥有该文件的权限，第7-9位确定其他用户拥有该文件的权限。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/02/16/gitMerge/#more" rel="contents">
+            <a class="btn" href="/2018/02/18/linux03/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
         
       
-    </li></ul></div>
+    </div>
     
     
     
@@ -1361,7 +1187,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
