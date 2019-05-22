@@ -326,6 +326,527 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2019/05/22/mysqlLockWaitTimeout/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="He Chao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar1.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HeChao's Personal Website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/22/mysqlLockWaitTimeout/" itemprop="url">SQLException Lock wait timeout exceeded; try restarting transaction</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-22T19:27:42+08:00">
+                2019-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/22/mysqlLockWaitTimeout/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/22/mysqlLockWaitTimeout/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/05/22/mysqlLockWaitTimeout/" class="leancloud_visitors" data-flag-title="SQLException Lock wait timeout exceeded; try restarting transaction">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="场景-amp-表象"><a href="#场景-amp-表象" class="headerlink" title="场景&amp;表象"></a>场景&amp;表象</h2><p>当业务层对同一张表同一行数据并发update时偶现抛异常如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.dao.CannotAcquireLockException: </span><br><span class="line"><span class="comment">### Error updating database.  Cause: java.sql.SQLException: Lock wait timeout exceeded; try restarting transaction</span></span><br><span class="line"><span class="comment">### The error may involve com.netease.is.cloudsafe.base.domain.admin.AdminInfoDao.updateByCorpEmail-Inline</span></span><br><span class="line"><span class="comment">### The error occurred while setting parameters</span></span><br><span class="line"><span class="comment">### SQL: UPDATE admin_info                    SET last_login_time = ?                WHERE corp_email = ?</span></span><br><span class="line"><span class="comment">### Cause: java.sql.SQLException: Lock wait timeout exceeded; try restarting transaction</span></span><br><span class="line">; SQL []; <span class="keyword">Lock</span> <span class="keyword">wait</span> <span class="keyword">timeout</span> exceeded; try restarting transaction; nested exception is java.sql.SQLException: <span class="keyword">Lock</span> <span class="keyword">wait</span> <span class="keyword">timeout</span> exceeded; try restarting transaction</span><br><span class="line">	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:259)</span><br><span class="line">	...(具体异常堆栈信息)...</span><br></pre></td></tr></table></figure>
+<h2 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h2><p>在高并发的情况下，Spring事务造成数据库死锁，后续操作超时抛出异常。 Mysql数据库采用InnoDB存储引擎，一旦数据库锁超过innodb_lock_wait_timeout设置的锁等待的时间就会报错。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/22/mysqlLockWaitTimeout/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2019/03/15/apollo-deploy/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="He Chao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar1.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HeChao's Personal Website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/15/apollo-deploy/" itemprop="url">Apollo 分布式部署实战</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-15T10:04:57+08:00">
+                2019-03-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/15/apollo-deploy/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/15/apollo-deploy/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/15/apollo-deploy/" class="leancloud_visitors" data-flag-title="Apollo 分布式部署实战">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="运行时环境"><a href="#运行时环境" class="headerlink" title="运行时环境"></a>运行时环境</h3><h4 id="os"><a href="#os" class="headerlink" title="os"></a>os</h4><p>服务端基于 Spring Boot，启动脚本理论上支持所有 Linux 发行版，建议 CentOS 7。</p>
+<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><p>Apollo服务端：1.8+ | Apollo客户端：1.7+</p>
+<h4 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h4><p>Apollo 的表结构对 timestamp 使用了多个 default 声明，所以需要5.6.5以上版本。可以降级到 5.5。</p>
+<h4 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h4><ul>
+<li>DEV：开发环境</li>
+<li>FAT：测试环境，相当于alpha环境(功能测试)</li>
+<li>UAT：集成环境，相当于beta环境（回归测试）</li>
+<li>PRO：生产环境</li>
+</ul>
+<p>也支持自定义。</p>
+<h4 id="网络策略"><a href="#网络策略" class="headerlink" title="网络策略"></a>网络策略</h4><p>分布式部署的时候，apollo-configservice 和 apollo-adminservice 需要把自己的 IP 和端口注册到 Meta Server（apollo-configservice本身）。</p>
+<p>Apollo 客户端和 Portal 会从 Meta Server 获取服务的地址（IP+端口），然后通过服务地址直接访问。</p>
+<p>所以如果实际部署的机器有多块网卡（如docker），或者存在某些网卡的 IP 是 Apollo 客户端和 Portal 无法访问的（如网络安全限制），那么我们就需要在 apollo-configservice 和 apollo<br>-adminservice 中做相关限制以避免 Eureka 将这些网卡的IP注册到 Meta Server。</p>
+<p>可以修改 startup.sh 直接指定要注册的IP。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/15/apollo-deploy/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://hechao.me/2019/03/04/plugins/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="He Chao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar1.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HeChao's Personal Website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/04/plugins/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T21:56:44+08:00">
+                2019-03-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/04/plugins/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/04/plugins/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/04/plugins/" class="leancloud_visitors" data-flag-title="">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Intellij-IDEA-实用插件"><a href="#Intellij-IDEA-实用插件" class="headerlink" title="Intellij IDEA 实用插件"></a>Intellij IDEA 实用插件</h2><h4 id="ignore"><a href="#ignore" class="headerlink" title=".ignore"></a>.ignore</h4><p>地址：<a href="https://plugins.jetbrains.com/plugin/7495--ignore" target="_blank" rel="noopener">https://plugins.jetbrains.com/plugin/7495--ignore</a></p>
+<p>生成各种 ignore 文件，一键创建 git ignore 文件的模板，免得自己去写。</p>
+<h4 id="lombok"><a href="#lombok" class="headerlink" title="lombok"></a>lombok</h4><p>地址：<a href="https://plugins.jetbrains.com/plugin/6317-lombok-plugin" target="_blank" rel="noopener">https://plugins.jetbrains.com/plugin/6317-lombok-plugin</a></p>
+<p>支持 lombok 的各种注解，从此不用写 getter setter 这些，可以把注解还原为原本的java代码。</p>
+<h4 id="p3c"><a href="#p3c" class="headerlink" title="p3c"></a>p3c</h4><p>地址：<a href="https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines" target="_blank" rel="noopener">https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines</a></p>
+<p>阿里巴巴出品的java代码规范插件，可以扫描整个项目找到不规范的地方 并且大部分可以自动修复。 </p>
+<p>Github：<a href="https://github.com/alibaba/p3c/tree/master/idea-plugin" target="_blank" rel="noopener">https://github.com/alibaba/p3c/tree/master/idea-plugin</a></p>
+<h4 id="FindBugs-IDEA"><a href="#FindBugs-IDEA" class="headerlink" title="FindBugs-IDEA"></a>FindBugs-IDEA</h4><p>地址：<a href="https://plugins.jetbrains.com/plugin/3847-findbugs-idea" target="_blank" rel="noopener">https://plugins.jetbrains.com/plugin/3847-findbugs-idea</a></p>
+<p>检测代码中可能的 bug 及不规范的位置，检测的模式相比 p3c 更多，写完代码后检测下可以避免低级 bug，强烈建议。</p>
+<h4 id="GsonFormat"><a href="#GsonFormat" class="headerlink" title="GsonFormat"></a>GsonFormat</h4><p>地址：<a href="https://plugins.jetbrains.com/plugin/7654-gsonformat" target="_blank" rel="noopener">https://plugins.jetbrains.com/plugin/7654-gsonformat</a></p>
+<p>一键根据json文本生成java类。</p>
+<h4 id="Maven-Helper"><a href="#Maven-Helper" class="headerlink" title="Maven Helper"></a>Maven Helper</h4><p>地址：<a href="https://plugins.jetbrains.com/plugin/7179-maven-helper" target="_blank" rel="noopener">https://plugins.jetbrains.com/plugin/7179-maven-helper</a></p>
+<p>一键查看 maven 依赖，查看冲突的依赖，一键进行 exclude 依赖。</p>
+<h4 id="VisualVM-Launcher"><a href="#VisualVM-Launcher" class="headerlink" title="VisualVM Launcher"></a>VisualVM Launcher</h4><p>地址：<a href="https://plugins.jetbrains.com/plugin/7115-visualvm-launcher" target="_blank" rel="noopener">https://plugins.jetbrains.com/plugin/7115-visualvm-launcher</a></p>
+<p>运行 java 程序的时候启动 visualvm，方便查看 jvm 的情况，比如堆内存大小的分配，某个对象占用了多大的内存，jvm调优必备工具。</p>
+<h4 id="GenerateAllSetter"><a href="#GenerateAllSetter" class="headerlink" title="GenerateAllSetter"></a>GenerateAllSetter</h4><p>地址：<a href="https://plugins.jetbrains.com/plugin/9360-generateallsetter" target="_blank" rel="noopener">https://plugins.jetbrains.com/plugin/9360-generateallsetter</a></p>
+<p>一键调用一个对象的所有 set 方法并且赋予默认值 在对象字段多的时候非常方便。</p>
+<h4 id="MyBatisCodeHelperPro"><a href="#MyBatisCodeHelperPro" class="headerlink" title="MyBatisCodeHelperPro"></a>MyBatisCodeHelperPro</h4><p>地址：<a href="https://plugins.jetbrains.com/plugin/9837-mybatiscodehelperpro" target="_blank" rel="noopener">https://plugins.jetbrains.com/plugin/9837-mybatiscodehelperpro</a></p>
+<p>mybatis 代码自动生成插件，大部分单表操作的代码可自动生成，减少重复劳动，大幅提升效率。</p>
+<h4 id="Rainbow-Brackets"><a href="#Rainbow-Brackets" class="headerlink" title="Rainbow Brackets"></a>Rainbow Brackets</h4><p>地址：<a href="https://plugins.jetbrains.com/plugin/10080-rainbow-brackets" target="_blank" rel="noopener">https://plugins.jetbrains.com/plugin/10080-rainbow-brackets</a></p>
+<p>彩虹颜色的括号，看着很舒服。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://hechao.me/2019/03/01/sentinel/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -677,532 +1198,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://hechao.me/2019/01/31/encrypt/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="He Chao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar1.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HeChao's Personal Website">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/31/encrypt/" itemprop="url">AES + RSA + Hash 实现 C-S 安全交互</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-31T10:30:53+08:00">
-                2019-01-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/加解密/" itemprop="url" rel="index">
-                    <span itemprop="name">加解密</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/01/31/encrypt/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/31/encrypt/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/01/31/encrypt/" class="leancloud_visitors" data-flag-title="AES + RSA + Hash 实现 C-S 安全交互">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>AES 由于其执行速度快，易于硬件实现，破解难度大等优势，被广泛用于数据的加密。</p>
-<p>既然是对称加密，那如何保证秘钥的安全传输？很容易想到用 RSA 加密秘钥。由于只能用私钥解密，而私钥不需要交互双方都知道也就不用通过网络传输，只要私钥不泄露信息就是安全的。</p>
-<p>但如果别人截取到请求后伪造数据也用 RSA 公钥加密这种情况呢？也就是如何保证数据的准确性？这个时候就需要签名校验。</p>
-<p>本文基于 AES + RSA + Hash 实现一套完整的足够安全的加解密算法。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/31/encrypt/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://hechao.me/2019/01/30/baes64/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="He Chao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar1.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HeChao's Personal Website">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/30/baes64/" itemprop="url">Base64编码原理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-30T19:07:37+08:00">
-                2019-01-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/编码/" itemprop="url" rel="index">
-                    <span itemprop="name">编码</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/01/30/baes64/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/30/baes64/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/01/30/baes64/" class="leancloud_visitors" data-flag-title="Base64编码原理">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><blockquote>
-<p>Base64是一种基于64个可打印字符来表示二进制数据的表示方法。由于每6个比特为一个单元，对应某个可打印字符。3个字节有24个比特，对应于4个Base64单元，即3个字节可由4<br>个可打印字符来表示。它可用来作为电子邮件的传输编码。在Base64中的可打印字符包括字母A-Z、a-z、数字0-9，这样共有62个字符，此外两个可打印符号在不同的系统中而不同。</p>
-</blockquote>
-<blockquote>
-<p>Base64常用于在通常处理文本数据的场合，表示、传输、存储一些二进制数据，包括MIME的电子邮件及XML的一些复杂数据。</p>
-</blockquote>
-<p>概况来说，Base64 就是选出 64 个字符（小写字母a-z、大写字母A-Z、数字0-9、符号”+”、”/“），作为一个基本字符集，将其他所有符号都转换成这个字符集中的字符。</p>
-<p>缺点：因为 Base64 将三个字节转化成四个字节，因此 Base64 编码后的文本，会比原文本大出三分之一左右。</p>
-<p>优点：有些网关或系统只能使用ASCII字符。Base64就是用来将非ASCII字符的数据转换成ASCII字符的一种方法，而且base64特别适合在http，mime协议下快速传输数据。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/30/baes64/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://hechao.me/2019/01/12/scala01/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="He Chao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar1.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HeChao's Personal Website">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/12/scala01/" itemprop="url">scala 学习笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-12T16:53:21+08:00">
-                2019-01-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/scala/" itemprop="url" rel="index">
-                    <span itemprop="name">scala</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/01/12/scala01/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/12/scala01/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/01/12/scala01/" class="leancloud_visitors" data-flag-title="scala 学习笔记">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-              <div class="post-description">
-                  Recording the process of learning scala
-              </div>
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p class="description"></p>
-
-<p>下午抽时间学习了下 scala 的基本语法，有 java 基础看起来很快，这里主要记录一下与 java 不同的地方。</p>
-<h2 id="scala-简介"><a href="#scala-简介" class="headerlink" title="scala 简介"></a>scala 简介</h2><p>Scala 是 Scalable Language 的简写，是一门多范式的编程语言。</p>
-<h2 id="scala-特性"><a href="#scala-特性" class="headerlink" title="scala 特性"></a>scala 特性</h2><ul>
-<li>面向对象：每个值都是对象。对象的数据类型以及行为由类和特征描述。</li>
-<li>函数式编程：函数也能当成值（对象）来使用。</li>
-<li>静态类型：通过编译时检查，保证代码的安全性和一致性。</li>
-<li>扩展性：可以以库的形式无缝添加新的语言结构，自动闭包等。</li>
-<li>并发性：使用Akka作为默认 Actor 实现，可以复用线程。</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/12/scala01/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1259,7 +1254,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

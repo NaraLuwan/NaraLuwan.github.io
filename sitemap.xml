@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://hechao.me/2019/05/22/mysqlLockWaitTimeout/</loc>
+    
+    <lastmod>2019-05-22T11:42:57.072Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://hechao.me/2019/03/15/apollo-deploy/</loc>
+    
+    <lastmod>2019-03-15T02:18:37.684Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://hechao.me/2019/03/04/plugins/</loc>
+    
+    <lastmod>2019-03-04T14:02:46.235Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://hechao.me/2019/03/01/sentinel/</loc>
     
     <lastmod>2019-03-01T12:38:38.962Z</lastmod>
